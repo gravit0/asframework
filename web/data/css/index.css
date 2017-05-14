@@ -1,0 +1,47 @@
+#content
+{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.ActiveMenu
+{
+    color: green;
+    margin: 0;
+}
+.ActiveMenu > .active
+{
+    color: red;
+    background-color: #272727;
+}
+.ActiveMenu li
+{
+    float: left;
+    min-width: 20px;
+    list-style: none;
+    line-height: 50px;
+    text-align: center;
+    background-color: #424242;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.ActiveMenu a
+{
+    text-decoration: none;
+    color: #FFFFFF;
+    height: 50px;
+}
+#nav-panel
+{
+    background-color: #424242;
+    height: 50px;
+    padding-right: 10px;
+}
+#nav-panel ul
+{
+    float: right;
+}
+body
+{
+    margin: 0;
+    padding: 0;
+}

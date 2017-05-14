@@ -1,0 +1,126 @@
+05.01.17 12:35:59 {E}[Exception]IP: 127.0.0.1 IPv:4 Class Exception. Message: CRASH!. Trace:[{"file":"\/srv\/http\/as\/web\/index.php","line":37,"function":"request","class":"controllers\\errorController","type":"->","args":[null]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]
+05.01.17 12:39:57 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":37,"function":"request","class":"controllers\\errorController","type":"->","args":[null]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+05.01.17 12:41:17 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":37,"function":"request","class":"controllers\\errorController","type":"->","args":[null]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+05.01.17 12:43:24 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":37,"function":"request","class":"controllers\\errorController","type":"->","args":[null]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+05.01.17 13:26:30 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":37,"function":"request","class":"controllers\\errorController","type":"->","args":[null]}]}
+05.07.17 05:54:06 {I}request index
+05.07.17 05:56:15 {I}request index
+05.07.17 05:56:26 {I}request index
+05.07.17 05:56:32 {I}request index
+05.07.17 05:57:54 {I}request index
+05.07.17 07:10:22 {I}request index
+05.07.17 07:10:48 {I}request index
+05.07.17 07:10:56 {I}request index
+05.07.17 07:11:25 {I}request index
+05.07.17 08:56:48 {I}request index
+05.07.17 09:38:29 {I}request index
+05.07.17 09:38:31 {I}request auth
+05.07.17 09:38:36 {I}request index
+05.07.17 09:42:03 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"ParseError","message":"syntax error, unexpected ')', expecting ']'","Trace:":[{"function":"{closure}","args":["controllers\\apiController"]},{"file":"\/srv\/http\/as\/web\/index.php","line":24,"function":"spl_autoload_call","args":["controllers\\apiController"]}]}
+05.07.17 09:42:30 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"\u0441lassNotLoadedException","message":"controllers\\cpp","Trace:":[{"function":"{closure}","args":["controllers\\cpp"]},{"file":"\/srv\/http\/as\/app\/controllers\/apiController.php","line":47,"function":"spl_autoload_call","args":["controllers\\cpp"]},{"file":"\/srv\/http\/as\/web\/index.php","line":35,"function":"getgroupmap","class":"controllers\\apiController","type":"->","args":[{"r":"api","a":"getgroupmap"}]}]}
+05.07.17 09:42:47 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"\u0441lassNotLoadedException","message":"controllers\\app","Trace:":[{"function":"{closure}","args":["controllers\\app"]},{"file":"\/srv\/http\/as\/app\/controllers\/apiController.php","line":47,"function":"spl_autoload_call","args":["controllers\\app"]},{"file":"\/srv\/http\/as\/web\/index.php","line":35,"function":"getgroupmap","class":"controllers\\apiController","type":"->","args":[{"r":"api","a":"getgroupmap"}]}]}
+05.07.17 09:45:47 {I}request index
+05.07.17 11:19:52 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Using $this when not in object context","Trace:":[{"file":"\/srv\/http\/as\/views\/main.php","line":4,"function":"renderHead","class":"visual","type":"::","args":[]},{"file":"\/srv\/http\/as\/app\/visual.php","line":13,"args":["\/srv\/http\/as\/views\/main.php"],"function":"include"},{"file":"\/srv\/http\/as\/app\/visual.php","line":18,"function":"renderView","class":"visual","type":"::","args":["main"]},{"file":"\/srv\/http\/as\/app\/controllers\/indexController.php","line":46,"function":"render","class":"visual","type":"::","args":["reg"]},{"file":"\/srv\/http\/as\/web\/index.php","line":35,"function":"reg","class":"controllers\\indexController","type":"->","args":[{"r":"index","a":"reg"}]}]}
+05.07.17 11:21:42 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Using $this when not in object context","Trace:":[{"file":"\/srv\/http\/as\/views\/main.php","line":4,"function":"renderHead","class":"visual","type":"::","args":[]},{"file":"\/srv\/http\/as\/app\/visual.php","line":13,"args":["\/srv\/http\/as\/views\/main.php"],"function":"include"},{"file":"\/srv\/http\/as\/app\/visual.php","line":18,"function":"renderView","class":"visual","type":"::","args":["main"]},{"file":"\/srv\/http\/as\/app\/controllers\/indexController.php","line":40,"function":"render","class":"visual","type":"::","args":["auth"]},{"file":"\/srv\/http\/as\/web\/index.php","line":35,"function":"auth","class":"controllers\\indexController","type":"->","args":[{"r":"index","a":"auth"}]}]}
+05.07.17 12:24:04 {I}request index
+05.08.17 06:06:33 {I}request index
+05.08.17 06:08:59 {I}request index
+05.08.17 06:45:52 {I}request index
+05.08.17 06:45:55 {I}request index
+05.08.17 06:46:02 {I}request index
+05.08.17 06:46:30 {I}request index
+05.08.17 06:49:55 {I}request index
+05.08.17 06:51:11 {I}request index
+05.08.17 06:51:41 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"ParseError","message":"syntax error, unexpected '\/', expecting ',' or ';'","Trace:":[{"function":"{closure}","args":["widgets\\Form"]},{"file":"\/srv\/http\/as\/views\/auth.php","line":4,"function":"spl_autoload_call","args":["widgets\\Form"]},{"file":"\/srv\/http\/as\/app\/visual.php","line":13,"args":["\/srv\/http\/as\/views\/auth.php"],"function":"include"},{"file":"\/srv\/http\/as\/app\/visual.php","line":21,"function":"renderView","class":"visual","type":"::","args":["auth",[]]},{"file":"\/srv\/http\/as\/views\/main.php","line":23,"function":"renderBody","class":"visual","type":"::","args":[]},{"file":"\/srv\/http\/as\/app\/visual.php","line":13,"args":["\/srv\/http\/as\/views\/main.php"],"function":"include"},{"file":"\/srv\/http\/as\/app\/visual.php","line":18,"function":"renderView","class":"visual","type":"::","args":["main"]},{"file":"\/srv\/http\/as\/app\/controllers\/indexController.php","line":40,"function":"render","class":"visual","type":"::","args":["auth"]},{"file":"\/srv\/http\/as\/web\/index.php","line":35,"function":"auth","class":"controllers\\indexController","type":"->","args":[{"r":"index","a":"auth"}]}]}
+05.08.17 06:51:58 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Call to undefined method helpers\\ajaxHelper::newCSRFToken()","Trace:":[{"file":"\/srv\/http\/as\/views\/auth.php","line":12,"function":"end","class":"widgets\\Form","type":"->","args":[]},{"file":"\/srv\/http\/as\/app\/visual.php","line":13,"args":["\/srv\/http\/as\/views\/auth.php"],"function":"include"},{"file":"\/srv\/http\/as\/app\/visual.php","line":21,"function":"renderView","class":"visual","type":"::","args":["auth",[]]},{"file":"\/srv\/http\/as\/views\/main.php","line":23,"function":"renderBody","class":"visual","type":"::","args":[]},{"file":"\/srv\/http\/as\/app\/visual.php","line":13,"args":["\/srv\/http\/as\/views\/main.php"],"function":"include"},{"file":"\/srv\/http\/as\/app\/visual.php","line":18,"function":"renderView","class":"visual","type":"::","args":["main"]},{"file":"\/srv\/http\/as\/app\/controllers\/indexController.php","line":40,"function":"render","class":"visual","type":"::","args":["auth"]},{"file":"\/srv\/http\/as\/web\/index.php","line":35,"function":"auth","class":"controllers\\indexController","type":"->","args":[{"r":"index","a":"auth"}]}]}
+05.08.17 07:09:23 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"ArgumentCountError","message":"Too few arguments to function helpers\\ajaxHelper::newCSRFToken(), 2 passed in \/srv\/http\/as\/app\/widgets\/Form.php on line 40 and exactly 3 expected","Trace:":[{"file":"\/srv\/http\/as\/app\/widgets\/Form.php","line":40,"function":"newCSRFToken","class":"helpers\\ajaxHelper","type":"::","args":[null,1]},{"file":"\/srv\/http\/as\/views\/auth.php","line":12,"function":"end","class":"widgets\\Form","type":"->","args":[]},{"file":"\/srv\/http\/as\/app\/visual.php","line":13,"args":["\/srv\/http\/as\/views\/auth.php"],"function":"include"},{"file":"\/srv\/http\/as\/app\/visual.php","line":21,"function":"renderView","class":"visual","type":"::","args":["auth",[]]},{"file":"\/srv\/http\/as\/views\/main.php","line":23,"function":"renderBody","class":"visual","type":"::","args":[]},{"file":"\/srv\/http\/as\/app\/visual.php","line":13,"args":["\/srv\/http\/as\/views\/main.php"],"function":"include"},{"file":"\/srv\/http\/as\/app\/visual.php","line":18,"function":"renderView","class":"visual","type":"::","args":["main"]},{"file":"\/srv\/http\/as\/app\/controllers\/indexController.php","line":40,"function":"render","class":"visual","type":"::","args":["auth"]},{"file":"\/srv\/http\/as\/web\/index.php","line":35,"function":"auth","class":"controllers\\indexController","type":"->","args":[{"r":"index","a":"auth"}]}]}
+05.08.17 07:17:03 {I}request index
+05.08.17 07:25:09 {I}request index
+05.08.17 07:25:10 {I}request index
+05.08.17 07:25:12 {I}request index
+05.08.17 07:33:14 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Undefined class constant 'FLAG_CSRF_TOKEN'","Trace:":[]}
+05.08.17 07:33:37 {I}request index
+05.08.17 07:53:31 {I}request index
+05.08.17 07:53:38 {I}request index
+05.08.17 07:56:38 {I}request index
+05.08.17 07:57:08 {I}request index
+05.08.17 07:57:11 {I}request index
+05.08.17 07:58:42 {I}request index
+05.08.17 08:14:37 {I}request index
+05.08.17 08:16:10 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"ParseError","message":"syntax error, unexpected '='","Trace:":[{"function":"{closure}","args":["controllers\\indexController"]},{"file":"\/srv\/http\/as\/web\/index.php","line":25,"function":"spl_autoload_call","args":["controllers\\indexController"]}]}
+05.08.17 08:16:20 {I}request index
+05.08.17 08:16:47 {I}request index
+05.08.17 08:18:02 {I}request index
+05.08.17 08:18:32 {I}request index
+05.08.17 08:18:40 {I}request index
+05.08.17 08:19:05 {I}request index
+05.08.17 08:19:12 {I}request index
+05.08.17 08:20:48 {I}request index
+05.08.17 08:21:26 {I}request index
+05.08.17 08:22:00 {I}request index
+05.08.17 08:22:13 {I}request index
+05.08.17 08:24:15 {I}request index
+05.11.17 11:15:59 {I}request index
+05.13.17 08:19:39 {I}request index
+05.13.17 08:19:39 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"ArgumentCountError","message":"Too few arguments to function app::includePHPFile(), 1 passed in \/srv\/http\/as\/app\/visual.php on line 14 and exactly 2 expected","Trace:":[{"file":"\/srv\/http\/as\/app\/visual.php","line":14,"function":"includePHPFile","class":"app","type":"::","args":["\/srv\/http\/as\/views\/main.php"]},{"file":"\/srv\/http\/as\/app\/visual.php","line":20,"function":"renderView","class":"visual","type":"::","args":["main"]},{"file":"\/srv\/http\/as\/web\/index.php","line":52,"function":"render","class":"visual","type":"::","args":["view",[]]}]}
+05.13.17 08:19:59 {I}request index
+05.13.17 08:19:59 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"FileNotFoundException","message":"\/srv\/http\/as\/views\/main.php","Trace:":[{"file":"\/srv\/http\/as\/app\/visual.php","line":14,"function":"includePHPFile","class":"app","type":"::","args":["\/srv\/http\/as\/views\/main.php",[]]},{"file":"\/srv\/http\/as\/app\/visual.php","line":20,"function":"renderView","class":"visual","type":"::","args":["main"]},{"file":"\/srv\/http\/as\/web\/index.php","line":52,"function":"render","class":"visual","type":"::","args":["view",[]]}]}
+05.13.17 08:20:48 {I}request index
+05.13.17 08:21:35 {I}request index
+05.13.17 08:32:31 {I}request index
+05.13.17 09:16:44 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"ParseError","message":"syntax error, unexpected '}'","Trace:":[{"function":"load","class":"app","type":"::","args":["controllers\\consoleController"]},{"file":"\/srv\/http\/as\/as","line":35,"function":"spl_autoload_call","args":["controllers\\consoleController"]}]}
+05.13.17 09:18:19 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"ParseError","message":"syntax error, unexpected '}'","Trace:":[{"function":"load","class":"app","type":"::","args":["controllers\\consoleController"]},{"file":"\/srv\/http\/as\/as","line":35,"function":"spl_autoload_call","args":["controllers\\consoleController"]}]}
+05.13.17 09:18:42 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"ParseError","message":"syntax error, unexpected '}'","Trace:":[{"function":"load","class":"app","type":"::","args":["controllers\\consoleController"]},{"file":"\/srv\/http\/as\/as","line":35,"function":"spl_autoload_call","args":["controllers\\consoleController"]}]}
+05.13.17 09:26:52 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Call to undefined method Account::pushPermisions()","Trace:":[{"file":"\/srv\/http\/as\/as","line":49,"function":"repairadmin","class":"controllers\\consoleController","type":"->","args":[{"a":"repairadmin"}]}]}
+05.13.17 10:05:59 {I}request index
+05.13.17 13:14:28 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Undefined class constant 'TEXTCOLOR_FLASH'","Trace:":[{"file":"\/srv\/http\/as\/as","line":49,"function":"getuser","class":"controllers\\consoleController","type":"->","args":[{"a":"getuser","id":"1"}]}]}
+05.14.17 07:36:52 {I}request index
+05.14.17 07:36:55 {I}request index
+05.14.17 07:40:33 {I}request index
+05.14.17 07:40:40 {I}request index
+05.14.17 07:55:10 {I}request index
+05.14.17 07:57:06 {I}request index
+05.14.17 07:57:29 {I}request index
+05.14.17 07:58:02 {I}request index
+05.14.17 07:58:08 {I}request index
+05.14.17 07:58:27 {I}request index
+05.14.17 07:58:30 {I}request index
+05.14.17 07:59:10 {I}request index
+05.14.17 07:59:10 {I}request user
+05.14.17 07:59:20 {I}request index
+05.14.17 08:35:48 {I}request index
+05.14.17 08:36:14 {I}request index
+05.14.17 08:36:18 {I}request index
+05.14.17 08:38:12 {I}request user
+05.14.17 08:38:13 {I}request index
+05.14.17 08:38:15 {I}request user
+05.14.17 08:38:33 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Undefined class constant 'FLAG_VERIFY_CSRF_TOKEN'","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":27,"function":"__construct","class":"controllers\\apiController","type":"->","args":[]}]}
+05.14.17 08:39:27 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Undefined class constant 'FLAG_VERIFY_CSRF_TOKEN'","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":27,"function":"__construct","class":"controllers\\apiController","type":"->","args":[]}]}
+05.14.17 08:40:03 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Call to undefined method helpers\\ajaxHelper::verifyToken()","Trace:":[]}
+05.14.17 08:41:10 {I}request index
+05.14.17 08:41:15 {I}request index
+05.14.17 08:41:17 {I}request index
+05.14.17 08:41:35 {I}request index
+05.14.17 08:41:56 {I}request index
+05.14.17 08:42:09 {I}request index
+05.14.17 08:43:35 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"ht77KHfKnCKsffNh.d420cb4b57193183620a8ea2496ae8ae","Trace:":[]}
+05.14.17 08:43:35 {I}request index
+05.14.17 08:45:11 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"9sb8tF8AnAs4ktT.5b6cc18ecb0e92f058214c8d7af374e7","Trace:":[]}
+05.14.17 08:45:11 {I}request index
+05.14.17 08:45:19 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"AsKQztkY74S9.d6be3fb987a80e3c11245da685a43413","Trace:":[]}
+05.14.17 08:45:19 {I}request index
+05.14.17 08:45:49 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"nt5t8aBDFBE5BD.33cd7cbe0ed7ac1546a7dfcca4134967","Trace:":[]}
+05.14.17 08:48:35 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"nt5t8aBDFBE5BD.33cd7cbe0ed7ac1546a7dfcca4134967","Trace:":[]}
+05.14.17 08:48:41 {I}request index
+05.14.17 08:48:44 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"FYasGDSyhTs7KFC6.490bf53e71c110ab955511a4eccc5005","Trace:":[]}
+05.14.17 08:49:18 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"FYasGDSyhTs7KFC6.490bf53e71c110ab955511a4eccc5005","Trace:":[]}
+05.14.17 08:49:26 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"Y93rka2ZSac4S.94d16b2317b80325d9e1f0b3d1e627c9","Trace:":[]}
+05.14.17 08:50:47 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"Y93rka2ZSac4S.94d16b2317b80325d9e1f0b3d1e627c9","Trace:":[]}
+05.14.17 08:51:18 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"Y93rka2ZSac4S.94d16b2317b80325d9e1f0b3d1e627c9","Trace:":[]}
+05.14.17 08:51:57 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"Y93rka2ZSac4S.94d16b2317b80325d9e1f0b3d1e627c9","Trace:":[]}
+05.14.17 08:52:28 {I}request index
+05.14.17 08:52:42 {I}request index
+05.14.17 08:52:47 {I}request index
+05.14.17 08:52:49 {I}request index
+05.14.17 09:34:47 {I}request index
+05.14.17 09:34:48 {I}request user
