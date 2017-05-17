@@ -10,6 +10,7 @@ namespace controllers;
 use helpers\ajaxHelper;
 use textFormats\jsonTextFormat;
 use Controller;
+use Account;
 use app;
 /**
  * Description of apiController
@@ -30,6 +31,18 @@ class apiController extends Controller {
     {
         $action = new \controllers\api\userAction();
         $action->auth($args);
+    }
+    function reg($args)
+    {
+        if(!$args['login'] || !$args['pass'] || !$args['email']) ajaxHelper::returnStatus(400);
+        $a = Account::getByLogin($args['login']);
+        if(!$a)
+        {
+            $newa = new Account;
+            $newa->reg($args['login'],password_hash($args['pass'],PASSWORD_DEFAULT),$args['email']);
+            ajaxHelper::returnStatus(200);
+        }
+        ajaxHelper::returnStatus(401);
     }
     function permissions($args)
     {
