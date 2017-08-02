@@ -173,3 +173,38 @@
 08.02.17 07:38:32 {I}request index
 08.02.17 07:38:33 {I}request user
 08.02.17 07:38:36 {I}request index
+08.02.17 07:54:39 {I}request index
+08.02.17 07:54:39 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"FileNotFoundException","message":"\/srv\/http\/as\/views\/layouts\/.php","Trace:":[{"file":"\/srv\/http\/as\/app\/visual.php","line":15,"function":"includePHPFile","class":"app","type":"::","args":["\/srv\/http\/as\/views\/layouts\/.php",[]]},{"file":"\/srv\/http\/as\/app\/visual.php","line":23,"function":"renderView","class":"visual","type":"::","args":["layouts\/"]},{"file":"\/srv\/http\/as\/web\/index.php","line":51,"function":"render","class":"visual","type":"::","args":["view",[]]}]}
+08.02.17 07:55:03 {I}request index
+08.02.17 07:55:03 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"FileNotFoundException","message":"\/srv\/http\/as\/views\/layouts\/.php","Trace:":[{"file":"\/srv\/http\/as\/app\/visual.php","line":15,"function":"includePHPFile","class":"app","type":"::","args":["\/srv\/http\/as\/views\/layouts\/.php",[]]},{"file":"\/srv\/http\/as\/app\/visual.php","line":23,"function":"renderView","class":"visual","type":"::","args":["layouts\/"]},{"file":"\/srv\/http\/as\/web\/index.php","line":51,"function":"render","class":"visual","type":"::","args":["view",[]]}]}
+08.02.17 07:55:35 {I}request index
+08.02.17 07:55:35 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"FileNotFoundException","message":"\/srv\/http\/as\/views\/layouts\/.php","Trace:":[{"file":"\/srv\/http\/as\/app\/visual.php","line":15,"function":"includePHPFile","class":"app","type":"::","args":["\/srv\/http\/as\/views\/layouts\/.php",[]]},{"file":"\/srv\/http\/as\/app\/visual.php","line":23,"function":"renderView","class":"visual","type":"::","args":["layouts\/"]},{"file":"\/srv\/http\/as\/web\/index.php","line":51,"function":"render","class":"visual","type":"::","args":["view",[]]}]}
+08.02.17 07:56:08 {I}request index
+08.02.17 07:56:08 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"FileNotFoundException","message":"\/srv\/http\/as\/views\/layouts\/.php","Trace:":[{"file":"\/srv\/http\/as\/app\/visual.php","line":15,"function":"includePHPFile","class":"app","type":"::","args":["\/srv\/http\/as\/views\/layouts\/.php",[]]},{"file":"\/srv\/http\/as\/app\/visual.php","line":23,"function":"renderView","class":"visual","type":"::","args":["layouts\/"]},{"file":"\/srv\/http\/as\/web\/index.php","line":51,"function":"render","class":"visual","type":"::","args":["view",[]]}]}
+08.02.17 07:58:07 {I}request index
+08.02.17 07:58:07 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"FileNotFoundException","message":"\/srv\/http\/as\/views\/layouts\/.php","Trace:":[{"file":"\/srv\/http\/as\/app\/visual.php","line":15,"function":"includePHPFile","class":"app","type":"::","args":["\/srv\/http\/as\/views\/layouts\/.php",[]]},{"file":"\/srv\/http\/as\/app\/visual.php","line":23,"function":"renderView","class":"visual","type":"::","args":["layouts\/"]},{"file":"\/srv\/http\/as\/web\/index.php","line":51,"function":"render","class":"visual","type":"::","args":["view",[]]}]}
+08.02.17 07:59:12 {I}request index
+08.02.17 07:59:12 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"FileNotFoundException","message":"\/srv\/http\/as\/views\/layouts\/.php","Trace:":[{"file":"\/srv\/http\/as\/app\/visual.php","line":15,"function":"includePHPFile","class":"app","type":"::","args":["\/srv\/http\/as\/views\/layouts\/.php",[]]},{"file":"\/srv\/http\/as\/app\/visual.php","line":23,"function":"renderView","class":"visual","type":"::","args":["layouts\/"]},{"file":"\/srv\/http\/as\/web\/index.php","line":51,"function":"render","class":"visual","type":"::","args":["view",[]]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 07:59:36 {I}request index
+08.02.17 08:00:19 {I}request index
+08.02.17 08:00:21 {I}request user
+08.02.17 08:00:30 {I}request index
+08.02.17 08:01:16 {I}request index
+08.02.17 08:01:18 {I}request user
+08.02.17 08:20:04 {I}request user
+08.02.17 08:20:08 {I}request user
+08.02.17 08:20:09 {I}request index
+08.02.17 08:20:11 {I}request index
+08.02.17 08:20:12 {I}request user
+08.02.17 08:26:23 {I}request user
+08.02.17 08:26:23 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Class name must be a valid object or a string","Trace:":[{"file":"\/srv\/http\/as\/app\/visual.php","line":33,"function":"renderView","class":"visual","type":"::","args":["userview",{"account":{"login":"root","id":1,"email":"admin@gravithome.ru","token":null,"tokenid":null,"arr":null,"isAuth":true,"permissions":15,"flags":7,"passwd":null,"last_login":"2017-05-14 15:24:41"}}]},{"file":"\/srv\/http\/as\/views\/layouts\/main.php","line":25,"function":"renderBody","class":"visual","type":"::","args":[]},{"file":"\/srv\/http\/as\/framework\/app.php","line":101,"args":["\/srv\/http\/as\/views\/layouts\/main.php"],"function":"include"},{"file":"\/srv\/http\/as\/app\/visual.php","line":20,"function":"includePHPFile","class":"app","type":"::","args":["\/srv\/http\/as\/views\/layouts\/main.php",[]]},{"file":"\/srv\/http\/as\/app\/visual.php","line":29,"function":"renderView","class":"visual","type":"::","args":["layouts\/main"]},{"file":"\/srv\/http\/as\/web\/index.php","line":51,"function":"render","class":"visual","type":"::","args":["userview",{"account":{"login":"root","id":1,"email":"admin@gravithome.ru","token":null,"tokenid":null,"arr":null,"isAuth":true,"permissions":15,"flags":7,"passwd":null,"last_login":"2017-05-14 15:24:41"}}]}]}
+08.02.17 08:29:50 {I}request user
+08.02.17 08:29:50 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"\u0441lassNotLoadedException","message":"vistal","Trace:":[{"function":"load","class":"app","type":"::","args":["vistal"]},{"file":"\/srv\/http\/as\/app\/visual.php","line":30,"function":"spl_autoload_call","args":["vistal"]},{"file":"\/srv\/http\/as\/web\/index.php","line":51,"function":"render","class":"visual","type":"::","args":["userview",{"account":{"login":"root","id":1,"email":"admin@gravithome.ru","token":null,"tokenid":null,"arr":null,"isAuth":true,"permissions":15,"flags":7,"passwd":null,"last_login":"2017-05-14 15:24:41"}}]}]}
+08.02.17 08:30:03 {I}request user
+08.02.17 08:30:03 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"\u0441lassNotLoadedException","message":"vistal","Trace:":[{"function":"load","class":"app","type":"::","args":["vistal"]},{"file":"\/srv\/http\/as\/app\/visual.php","line":30,"function":"spl_autoload_call","args":["vistal"]},{"file":"\/srv\/http\/as\/web\/index.php","line":51,"function":"render","class":"visual","type":"::","args":["userview",{"account":{"login":"root","id":1,"email":"admin@gravithome.ru","token":null,"tokenid":null,"arr":null,"isAuth":true,"permissions":15,"flags":7,"passwd":null,"last_login":"2017-05-14 15:24:41"}}]}]}
+08.02.17 08:30:24 {I}request user
+08.02.17 08:30:28 {I}request user
+08.02.17 08:30:30 {I}request index
+08.02.17 08:30:32 {I}request user
+08.02.17 08:39:11 {I}request user
+08.02.17 08:45:12 {I}request user

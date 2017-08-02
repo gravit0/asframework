@@ -3,9 +3,16 @@ class visual
 {
     private static $viewName;
     private static $viewArgs;
+    public static $layout;
+    public static $flags;
     public static $head;
     public static $title;
     public static $activeid;
+    private static $isAlready = false;
+    
+    const FLAG_NO_STD_CSS = 1 << 0;
+    const FLAG_NO_STD_JS = 1 << 1;
+    const FLAG_NO_LAYOUT = 1 << 2;
     static function renderView($__name,$args=[])
     {
         //if(!$args) $args = [];
@@ -14,10 +21,20 @@ class visual
         app::includePHPFile(DirSite . 'views/' . $__name . '.php',$args);
     }
     static function render($name, $args = []) {
+        if(visual::$isAlready) throw new visualException(visualException::ALREADY_TAKEN_PLACE);
         app::$status = app::STATUS_RENDER;
         visual::$viewName = $name;
         visual::$viewArgs = $args;
-        visual::renderView('main');
+        if(!(visual::$flags & visual::FLAG_NO_LAYOUT)) {
+            $layout = visual::$layout;
+            if(!$layout) $layout = app::$cfg['visual']['stdLayout'];
+            visual::renderView('layouts/'.$layout);
+        }
+        else
+        {
+            visual::renderView(visual::$viewName, visual::$viewArgs);
+        }
+        visual::$isAlready = true;
     }
     static function renderBody() {
         visual::renderView(visual::$viewName, visual::$viewArgs);
@@ -31,16 +48,20 @@ class visual
         visual::render('error/'.$err);
     }
     static function renderHead() {
-        echo '<link type="text/css" rel="stylesheet" href="./'. DirCSS . 'index.css">';
+        if(!(visual::$flags & visual::FLAG_NO_STD_CSS)) {
+            echo '<link type="text/css" rel="stylesheet" href="./'. DirCSS . app::$cfg['visual']['stdCSS'] .'">';
+        }
         if(visual::$title)
         {
             echo '<title>'.visual::$title.'</title>';
         }
-        echo '<script src="./'. DirJS . 'index.js"></script>';
-        if(DebugMode) 
-            echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>';
-        else
-            echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>';
+        if(!(visual::$flags & visual::FLAG_NO_STD_JS)) {
+            echo '<script src="./'. DirJS . app::$cfg['visual']['stdJavaScript'] . '"></script>';
+            if(DEBUG_MODE) 
+                echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>';
+            else
+                echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>';
+        }
         if(visual::$head)
         echo visual::$head;
     }

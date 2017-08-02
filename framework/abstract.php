@@ -47,7 +47,3 @@ class сlassNotLoadedException extends appException
 class FileNotFoundException extends appException
 {
 }
-class VisualException extends appException
-{
-    
-}

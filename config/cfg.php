@@ -21,9 +21,14 @@ return [
     ],
     'framework' => [
         'name'=> 'ASFramework',
-        'version'=> '0.1.2',
+        'version'=> '0.2.0',
         'release'=> 'alpha',
         'builder'=> 'Gravit',
         'info'=> 'Test Server'
-    ]
+    ],
+    'visual' => [
+            'stdLayout' => 'main',
+            'stdJavaScript' => 'index.js',
+            'stdCSS' => 'index.css'
+        ]
 ];
