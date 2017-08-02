@@ -40,14 +40,14 @@ class app
         $class = cfg_class_logger;
         $logger = new $class;
         $logger->err(['IP'=>inet_ntop(app::$request->ip),'IPv'=>((string)app::$request->versionIp),'class'=>get_class($e),'message'=>$e->getMessage(), 'Trace:'=>$e->getTrace()],'Exception');
-        if(app::$type == TYPE_CONSOLE)
+        if(app::$type == app::TYPE_CONSOLE)
         {
             echo "Exception!\n";
             echo 'Class '.get_class($e)."\n";
             echo 'Message '.$e->getMessage()."\n";
             echo 'Trace '.var_dump($e->getTrace())."\n";
         }
-        else if(!app::$type || app::$type == TYPE_WEB)
+        else if(!app::$type || app::$type == app::TYPE_WEB)
         {
             if(DEBUG_MODE) {
                 echo 'Exception!<br>';
@@ -57,9 +57,26 @@ class app
             }
             else
             {
-                echo 'Произошла серьезная ошибка при обработке запроса.<br>';
-                echo 'Свяжитесь с администратором для выяснения проблемы<br>';
-                echo 'Если проблема имеет массовый характер, мы о ней уже знаем<br>';
+                if(app::$status < app::STATUS_RUN || app::$status >= app::STATUS_RENDER) {
+                    echo 'Произошла серьезная ошибка при обработке запроса.<br>';
+                    echo 'Свяжитесь с администратором для выяснения проблемы<br>';
+                    echo 'Если проблема имеет массовый характер, мы о ней уже знаем<br>';
+                }
+                else {
+                    try {
+                        visual::renderView("error/exception");
+                    }
+                    catch(Error $e)
+                    {
+                        echo 'Произошла серьезная ошибка при обработке запроса.<br>';
+                        echo 'Свяжитесь с администратором для выяснения проблемы<br>';
+                        echo 'Если проблема имеет массовый характер, мы о ней уже знаем<br>';
+                    } catch (Exception $ex) {
+                        echo 'Произошла серьезная ошибка при обработке запроса.<br>';
+                        echo 'Свяжитесь с администратором для выяснения проблемы<br>';
+                        echo 'Если проблема имеет массовый характер, мы о ней уже знаем<br>';
+                    }
+                }
             }
         }
     }
@@ -77,7 +94,7 @@ class app
     }
     static function includePHPFile($file,$vars=null)
     {
-        if(!$args) $args = [];
+        if(!$vars) $vars = [];
         extract($vars, EXTR_OVERWRITE);
         if(!file_exists($file)) throw new FileNotFoundException($file);
         include $file;

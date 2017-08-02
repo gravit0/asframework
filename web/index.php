@@ -31,7 +31,8 @@ catch(сlassNotLoadedException $e)
     $file = 'controllers\\indexController';
     app::$controller = new $file;
 }
-$func = $args['a'].'Action';
+$func = null;
+if (isset($args['a']) && $args['a']) $func = $args['a'].'Action';
 app::$status = app::STATUS_VERIFY;
 if(app::$options & app::FLAG_CSRF_VERIFY)
 {
@@ -40,9 +41,7 @@ if(app::$options & app::FLAG_CSRF_VERIFY)
     $res = \helpers\ajaxHelper::verifyCSRFToken($args['csrf-token'],app::$controller->_csrf_formkey($args['a']),$userid);
     if(!$res) throw new Exception($args['csrf-token']);
 }
-
-if(!$args['a'] || !method_exists(app::$controller, $func))
-{
+if (!$func || !method_exists(app::$controller, $func)) {
     $func = 'request';
 }
 app::$status = app::STATUS_RUN;

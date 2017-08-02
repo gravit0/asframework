@@ -4,7 +4,7 @@ const DirCSS = '/data/css/';
 const DirJS = '/data/js/';
 const cfg_class_logger = '\\loggers\\FileLogger';
 
-const DebugMode = true;
+const DEBUG_MODE = false;
 
 define('PERM_READ', 1 << 0);   // 0001
 define('PERM_MODER', 1 << 1); // 0010

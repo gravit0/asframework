@@ -147,3 +147,29 @@
 08.02.17 07:05:01 {I}request index
 08.02.17 07:05:50 {I}request index
 08.02.17 07:05:56 {I}request user
+08.02.17 07:24:13 {I}request index
+08.02.17 07:24:16 {I}request user
+08.02.17 07:24:21 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":49,"function":"request","class":"controllers\\errorController","type":"->","args":[{"r":"error"}]}]}
+08.02.17 07:24:33 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":49,"function":"request","class":"controllers\\errorController","type":"->","args":[{"r":"error"}]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 07:28:58 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":49,"function":"request","class":"controllers\\errorController","type":"->","args":[{"r":"error"}]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 07:29:42 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":49,"function":"request","class":"controllers\\errorController","type":"->","args":[{"r":"error"}]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 07:30:01 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":49,"function":"request","class":"controllers\\errorController","type":"->","args":[{"r":"error"}]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 07:31:20 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":49,"function":"request","class":"controllers\\errorController","type":"->","args":[{"r":"error"}]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 07:31:31 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":49,"function":"request","class":"controllers\\errorController","type":"->","args":[{"r":"error"}]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 07:32:23 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":49,"function":"request","class":"controllers\\errorController","type":"->","args":[{"r":"error"}]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 07:33:10 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":49,"function":"request","class":"controllers\\errorController","type":"->","args":[{"r":"error"}]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 07:33:57 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Call to undefined method controllers\\errorController::Action()","Trace:":[{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"function":"require"}]}
+08.02.17 07:34:59 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Call to undefined method controllers\\errorController::Action()","Trace:":[{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"function":"require"}]}
+08.02.17 07:35:01 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Call to undefined method controllers\\errorController::Action()","Trace:":[{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"function":"require"}]}
+08.02.17 07:36:19 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"CRASH!","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":48,"function":"request","class":"controllers\\errorController","type":"->","args":[{"r":"error"}]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 07:36:23 {I}request index
+08.02.17 07:36:25 {I}request index
+08.02.17 07:37:50 {I}request index
+08.02.17 07:37:52 {I}request index
+08.02.17 07:37:53 {I}request index
+08.02.17 07:37:54 {I}request index
+08.02.17 07:38:29 {I}request user
+08.02.17 07:38:31 {I}request user
+08.02.17 07:38:32 {I}request index
+08.02.17 07:38:33 {I}request user
+08.02.17 07:38:36 {I}request index
