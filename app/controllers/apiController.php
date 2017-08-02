@@ -29,8 +29,7 @@ class apiController extends Controller {
     }
     function authAction($args)
     {
-        $action = new \controllers\api\userAction();
-        $action->authAction($args);
+        \controllers\api\userAction::authAction($args);
     }
     function regAction($args)
     {
@@ -46,23 +45,19 @@ class apiController extends Controller {
     }
     function permissionsAction($args)
     {
-        $action = new \controllers\api\userAction();
-        $action->permissionsAction($args);
+        \controllers\api\userAction::permissionsAction($args);
     }
     function flagsAction($args)
     {
-        $action = new \controllers\api\userAction();
-        $action->flagsAction($args);
+        \controllers\api\userAction::flagsAction($args);
     }
     function exitAction($args)
     {
-        $action = new \controllers\api\userAction();
-        $action->exitAction($args);
+        \controllers\api\userAction::exitAction($args);
     }
     function getuserAction($args)
     {
-        $action = new \controllers\api\userAction();
-        $action->getuserAction($args);
+        \controllers\api\userAction::getuserAction($args);
     }
     function getgroupmapAction($args)
     {

@@ -2,9 +2,9 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE);
 require(__DIR__ . '/config/main.php');
-$cfg = include(__DIR__ . '/config/cfg.php');
 require(__DIR__ . '/framework/abstract.php');
 require(__DIR__ . '/framework/app.php');
+$cfg = include(__DIR__ . '/config/cfg.php');
 app::$cfg = $cfg;
 app::$type = app::TYPE_CONSOLE;
 app::init();

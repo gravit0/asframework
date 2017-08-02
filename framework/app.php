@@ -38,9 +38,11 @@ class app {
     const FLAG_VISUAL_CONTROLLER = 1 << 1;
 
     static function exception_handler($e) {
-        $class = cfg_class_logger;
-        $logger = new $class;
-        $logger->err(['IP' => inet_ntop(app::$request->ip), 'IPv' => ((string) app::$request->versionIp), 'class' => get_class($e), 'message' => $e->getMessage(), 'Trace:' => $e->getTrace()], 'Exception');
+        if(!($e instanceof NoLoggableException)) {
+            $class = cfg_class_logger;
+            $logger = new $class;
+            $logger->err(['IP' => inet_ntop(app::$request->ip), 'IPv' => ((string) app::$request->versionIp), 'class' => get_class($e), 'message' => $e->getMessage(), 'Trace:' => $e->getTrace()], 'Exception');
+        }
         if (app::$type == app::TYPE_CONSOLE) {
             echo "Exception!\n";
             echo 'Class ' . get_class($e) . "\n";

@@ -47,3 +47,12 @@ class сlassNotLoadedException extends appException
 class FileNotFoundException extends appException
 {
 }
+class SecurityException extends appException
+{
+}
+class NoLoggableException extends appException
+{
+}
+class BadRequestException extends NoLoggableException
+{
+}

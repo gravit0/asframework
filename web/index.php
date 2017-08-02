@@ -1,8 +1,8 @@
 <?php
 require(__DIR__ . '/../config/main.php');
-$cfg = include(__DIR__ . '/../config/cfg.php');
 require(__DIR__ . '/../framework/abstract.php');
 require(__DIR__ . '/../framework/app.php');
+$cfg = include(__DIR__ . '/../config/cfg.php');
 app::$cfg = $cfg;
 app::$type = app::TYPE_WEB;
 app::init();
@@ -19,8 +19,15 @@ if (!empty($_POST)) {
 }
 app::$status = app::STATUS_LOAD;
 $controllerName = null;
+
 if(!isset($args['r'])) $controllerName = 'indexController';
-else $controllerName = $args['r'].'Controller';
+else {
+    //Check Security
+    if(!(strpos($args['r'], '\\') === false)) throw new SecurityException('bad controller '.$args['r'].'Controller');
+    if(!(strpos($args['r'], '/') === false)) throw new SecurityException('bad controller '.$args['r'].'Controller');
+    //----
+    $controllerName = $args['r'].'Controller';
+}
 $file = 'controllers\\'.$controllerName;
 app::$user = Account::getByToken();
 try{
@@ -28,6 +35,10 @@ try{
 }
 catch(сlassNotLoadedException $e)
 {
+    if(isset($args['r'])) {
+        visual::renderHttpError(404);
+        app::stop();
+    }
     $file = 'controllers\\indexController';
     app::$controller = new $file;
 }
@@ -39,7 +50,7 @@ if(app::$options & app::FLAG_CSRF_VERIFY)
     $userid = 0;
     if(app::$user) $userid = app::$user->id;
     $res = \helpers\ajaxHelper::verifyCSRFToken($args['csrf-token'],app::$controller->_csrf_formkey($args['a']),$userid);
-    if(!$res) throw new Exception($args['csrf-token']);
+    if(!$res) throw new BadRequestException('bad csrf token: '.$args['csrf-token']);
 }
 if (!$func || !method_exists(app::$controller, $func)) {
     $func = 'request';

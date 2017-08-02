@@ -208,3 +208,34 @@
 08.02.17 08:30:32 {I}request user
 08.02.17 08:39:11 {I}request user
 08.02.17 08:45:12 {I}request user
+08.02.17 09:14:42 {I}request user
+08.02.17 09:14:46 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"\u0441lassNotLoadedException","message":"SecurityException","Trace:":[{"function":"load","class":"app","type":"::","args":["SecurityException"]},{"file":"\/srv\/http\/as\/web\/index.php","line":27,"function":"spl_autoload_call","args":["SecurityException"]}]}
+08.02.17 09:15:05 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"SecurityException","message":"bad controller \/indexController","Trace:":[]}
+08.02.17 09:18:54 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"SecurityException","message":"bad controller \/indexController","Trace:":[]}
+08.02.17 09:18:58 {I}request user
+08.02.17 09:18:58 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"visualException","message":"0","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":59,"function":"render","class":"visual","type":"::","args":["userview",{"account":{"login":"root","id":1,"email":"admin@gravithome.ru","token":null,"tokenid":null,"arr":null,"isAuth":true,"permissions":15,"flags":7,"passwd":null,"last_login":"2017-05-14 15:24:41"}}]}]}
+08.02.17 09:20:38 {I}request user
+08.02.17 09:22:36 {I}request index
+08.02.17 09:22:37 {I}request user
+08.02.17 09:22:38 {I}request index
+08.02.17 09:23:27 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"","Trace:":[]}
+08.02.17 09:24:15 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"SecurityException","message":"","Trace:":[]}
+08.02.17 09:26:11 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"\u0441lassNotLoadedException","message":"BadRequestException","Trace:":[{"function":"load","class":"app","type":"::","args":["BadRequestException"]},{"file":"\/srv\/http\/as\/web\/index.php","line":53,"function":"spl_autoload_call","args":["BadRequestException"]}]}
+08.02.17 09:26:17 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"BadRequestException","message":"bad csrf token: ","Trace:":[]}
+08.02.17 09:49:50 {I}request index
+08.02.17 09:50:19 {I}request index
+08.02.17 09:51:08 {I}request index
+08.02.17 09:52:02 {I}request index
+08.02.17 09:52:06 {I}request index
+08.02.17 09:53:52 {I}request index
+08.02.17 09:54:32 {I}request index
+08.02.17 09:54:37 {I}request index
+08.02.17 09:54:56 {I}request index
+08.02.17 09:54:59 {I}request index
+08.02.17 09:55:21 {I}request index
+08.02.17 09:55:24 {I}request index
+08.02.17 09:56:24 {I}request index
+08.02.17 09:56:29 {I}request index
+08.02.17 09:58:05 {I}request index
+08.02.17 09:58:14 {I}request index
+08.02.17 09:58:16 {I}request user

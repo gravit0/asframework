@@ -10,7 +10,7 @@ use app;
 
 class userAction extends Action {
 
-    function authAction($args) {
+    static function authAction($args) {
         $login = $args['login'];
         $pass = $args['pass'];
         if (!$login || !$pass || app::$user)
@@ -53,7 +53,7 @@ class userAction extends Action {
         }
     }
     
-    function permissionsAction($args) {
+    static function permissionsAction($args) {
         if(!$args['f']) ajaxHelper::returnStatus(400);
         if(!$args['id']) ajaxHelper::returnStatus(400);
         if(!app::$user->isPermission(PERM_ADMIN) && !app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
@@ -124,7 +124,7 @@ class userAction extends Action {
         
         ajaxHelper::returnStatus(400);
     }
-    function flagsAction($args) {
+    static function flagsAction($args) {
         if(!$args['f']) ajaxHelper::returnStatus(400);
         if(!$args['id']) ajaxHelper::returnStatus(400);
         if(!app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
@@ -191,7 +191,7 @@ class userAction extends Action {
         
         ajaxHelper::returnStatus(400);
     }
-    function getuserAction($args)
+    static function getuserAction($args)
     {
         $results = [];
         $acc = null;
@@ -214,7 +214,7 @@ class userAction extends Action {
                     'user' => $results]);
         app::stop();
     }
-    function exitAction($args) {
+    static function exitAction($args) {
         if (!app::$user)
             ajaxHelper::returnStatus(400);
         app::$user->close();
