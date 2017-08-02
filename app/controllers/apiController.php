@@ -27,12 +27,12 @@ class apiController extends Controller {
     {
         ajaxHelper::returnStatus(400);
     }
-    function auth($args)
+    function authAction($args)
     {
         $action = new \controllers\api\userAction();
-        $action->auth($args);
+        $action->authAction($args);
     }
-    function reg($args)
+    function regAction($args)
     {
         if(!$args['login'] || !$args['pass'] || !$args['email']) ajaxHelper::returnStatus(400);
         $a = Account::getByLogin($args['login']);
@@ -44,27 +44,27 @@ class apiController extends Controller {
         }
         ajaxHelper::returnStatus(401);
     }
-    function permissions($args)
+    function permissionsAction($args)
     {
         $action = new \controllers\api\userAction();
-        $action->permissions($args);
+        $action->permissionsAction($args);
     }
-    function flags($args)
+    function flagsAction($args)
     {
         $action = new \controllers\api\userAction();
-        $action->flags($args);
+        $action->flagsAction($args);
     }
-    function exit($args)
+    function exitAction($args)
     {
         $action = new \controllers\api\userAction();
-        $action->accexit($args);
+        $action->exitAction($args);
     }
-    function getuser($args)
+    function getuserAction($args)
     {
         $action = new \controllers\api\userAction();
-        $action->getuser($args);
+        $action->getuserAction($args);
     }
-    function getgroupmap($args)
+    function getgroupmapAction($args)
     {
         echo jsonTextFormat::encode(['status' => 200,
                     'groupmap' => app::$cfg['users']['groupmap']]);

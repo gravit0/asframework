@@ -11,7 +11,7 @@ class Form
     public $buttonid;
     public $prefix;
     public $csrf_key;
-    function addInput($id,$type,$description,$verifyrule=null,$cssclass=null)
+    function addInput($id,$type,$description,$verifyrule=null,$cssclass="textinput")
     {
         $this->ids[] = ['rule'=>$verifyrule,'id'=>$id];
         $this->html .= $description.'<input id="'.$this->prefix.$id.'" type="'.$type.'"';
@@ -22,7 +22,7 @@ class Form
     {
         $this->jsfunc = $jsdata;
     }
-    function addButton($id,$value,$cssclass=null)
+    function addButton($id,$value,$cssclass="button button_blue")
     {
         $this->buttonid = $id;
         $this->html .= '<input id="'.$this->prefix.$id.'" type="submit" value="'.$value.'"';

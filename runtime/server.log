@@ -124,3 +124,23 @@
 05.14.17 08:52:49 {I}request index
 05.14.17 09:34:47 {I}request index
 05.14.17 09:34:48 {I}request user
+05.31.17 08:02:46 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Call to a member function setPassword() on null","Trace:":[{"file":"\/srv\/http\/as\/as","line":49,"function":"setpasswordAction","class":"controllers\\consoleController","type":"->","args":[{"a":"setpassword","id":"root","pass":"1111"}]}]}
+05.31.17 08:03:28 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Error","message":"Call to a member function setPassword() on null","Trace:":[{"file":"\/srv\/http\/as\/as","line":49,"function":"setpasswordAction","class":"controllers\\consoleController","type":"->","args":[{"a":"setpassword","id":"admin","pass":"1111"}]}]}
+08.02.17 05:57:54 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"ArgumentCountError","message":"Too few arguments to function controllers\\indexController::request(), 0 passed in \/srv\/http\/as\/web\/index.php on line 50 and exactly 1 expected","Trace:":[{"file":"\/srv\/http\/as\/web\/index.php","line":50,"function":"request","class":"controllers\\indexController","type":"->","args":[]},{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"args":["\/srv\/http\/as\/web\/index.php"],"function":"require"}]}
+08.02.17 06:16:28 {I}request index
+08.02.17 06:16:37 {I}request index
+08.02.17 06:16:39 {I}request user
+08.02.17 06:18:08 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"","Trace:":[]}
+08.02.17 06:18:20 {E}[Exception]{"IP":"127.0.0.1","IPv":"4","class":"Exception","message":"","Trace:":[{"file":"\/srv\/http\/as\/web\/index_test.php","line":5,"function":"require"}]}
+08.02.17 06:26:45 {I}request index
+08.02.17 06:26:47 {I}request user
+08.02.17 06:26:53 {I}request index
+08.02.17 06:26:55 {I}request user
+08.02.17 06:36:43 {I}request index
+08.02.17 06:36:47 {I}request user
+08.02.17 06:37:33 {I}request user
+08.02.17 06:37:39 {I}request user
+08.02.17 06:39:09 {I}request user
+08.02.17 06:40:09 {I}request user
+08.02.17 06:40:52 {I}request user
+08.02.17 06:41:26 {I}request user

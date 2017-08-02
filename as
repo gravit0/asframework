@@ -39,9 +39,9 @@ catch(сlassNotLoadedException $e)
     $file = 'controllers\\apiController';
     app::$controller = new $file;
 }
-$func = $args['a'];
+$func = $args['a'].'Action';
 app::$status = app::STATUS_VERIFY;
-if(!$func || !method_exists(app::$controller, $func))
+if(!$args['a'] || !method_exists(app::$controller, $func))
 {
     $func = 'request';
 }

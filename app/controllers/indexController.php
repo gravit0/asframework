@@ -13,16 +13,16 @@ class indexController  extends Controller
     }
     function request($args)
     {
-        return $this->index($args);
+        return $this->indexAction($args);
     }
-    function index($args)
+    function indexAction($args)
     {
         $log = new FileLogger;
         $log->log('request index','I');
         visual::$activeid='index';
         return ['view',[]];
     }
-    function user($args)
+    function userAction($args)
     {
         $log = new FileLogger;
         $log->log('request user','I');
@@ -36,13 +36,13 @@ class indexController  extends Controller
         }
         return ['userview',['account'=>$account]];
     }
-    function auth($args)
+    function authAction($args)
     {
         $log = new FileLogger;
         visual::$activeid='index_auth';
         return ['auth',[]];
     }
-    function exit($args)
+    function exitAction($args)
     {
         if(app::$user) {
             app::$user->close();
@@ -52,7 +52,7 @@ class indexController  extends Controller
         visual::$activeid='index';
         return ['view',[]];
     }
-    function reg($args)
+    function regAction($args)
     {
         $log = new FileLogger;
         visual::$activeid='index_reg';

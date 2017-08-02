@@ -47,7 +47,7 @@ class consoleController extends Controller {
         consoleHelpCreate('-r api -a permissions -f add -id [ID] -perm [PERMISSION]','Добавить привилегию пользователю');
         consoleHelpCreate('-r api -a permissions -f rm -id [ID] -perm [PERMISSION]','Удалить привилегию у пользователя');
     }
-    function setpassword($args)
+    function setpasswordAction($args)
     {
         if(!$args['id']) consoleHelper::textColor("ID не задан\n",consoleHelper::TEXTCOLOR_RED);
         if(!$args['pass']) consoleHelper::textColor("Новый пароль не задан\n",consoleHelper::TEXTCOLOR_RED);
@@ -57,7 +57,7 @@ class consoleController extends Controller {
         echo consoleHelper::textColor($args['pass'],consoleHelper::TEXTCOLOR_YELLOW);
         echo "\n";
     }
-    function getuser($args)
+    function getuserAction($args)
     {
         if(!$args['id']) consoleHelper::textColor("ID не задан\n",consoleHelper::TEXTCOLOR_RED);
         $acc = Account::getByID($args['id']);
@@ -81,7 +81,7 @@ class consoleController extends Controller {
         echo json_encode($acc->getAllPermissions());
         echo "\n";
     }
-    function repairadmin($args)
+    function repairadminAction($args)
     {
         $flagIsPush = false;
         echo "PERM_SUPERUSER:";

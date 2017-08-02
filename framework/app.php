@@ -40,14 +40,14 @@ class app
         $class = cfg_class_logger;
         $logger = new $class;
         $logger->err(['IP'=>inet_ntop(app::$request->ip),'IPv'=>((string)app::$request->versionIp),'class'=>get_class($e),'message'=>$e->getMessage(), 'Trace:'=>$e->getTrace()],'Exception');
-        if(app::$type = TYPE_CONSOLE)
+        if(app::$type == TYPE_CONSOLE)
         {
             echo "Exception!\n";
             echo 'Class '.get_class($e)."\n";
             echo 'Message '.$e->getMessage()."\n";
             echo 'Trace '.var_dump($e->getTrace())."\n";
         }
-        else if(!app::$type || app::$type = TYPE_WEB)
+        else if(!app::$type || app::$type == TYPE_WEB)
         {
             if(DEBUG_MODE) {
                 echo 'Exception!<br>';

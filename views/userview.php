@@ -3,6 +3,7 @@
 <p>ID пользователя: <?= $account->id ?></p>
 <p>Последний раз был: <?= $account->last_login ?></p>
 Группы:
+<div class="block">
 <?php
 function renderGroup($text)
 {
@@ -12,3 +13,5 @@ if($account->isPermission(PERM_SUPERUSER)) renderGroup('Суперпользов
 if($account->isPermission(PERM_READ)) renderGroup('Чтение');
 if($account->isPermission(PERM_ADMIN)) renderGroup('Администратор');
 if($account->isPermission(PERM_MODER)) renderGroup('Модератор');
+?>
+</div>
