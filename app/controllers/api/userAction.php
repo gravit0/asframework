@@ -10,11 +10,7 @@ use app;
 
 class userAction extends Action {
 
-    static function authAction($args) {
-        $login = $args['login'];
-        $pass = $args['pass'];
-        if (!$login || !$pass || app::$user)
-            ajaxHelper::returnStatus(400);
+    static function authAction($login, $pass) {
         try {
             app::$user = new Account;
             app::$user->auth($login, $pass);
@@ -23,8 +19,7 @@ class userAction extends Action {
             ajaxHelper::returnStatus(200);
         } catch (AccountException $e) {
             $msg = $e->getMessage();
-            if($msg == AccountException::AuthError)
-            {
+            if ($msg == AccountException::AuthError) {
                 echo jsonTextFormat::encode(['status' => 401,
                     'error' => [
                         'code' => $msg,
@@ -32,8 +27,7 @@ class userAction extends Action {
                 ]]);
                 app::stop();
             }
-            if($msg == AccountException::NoLoginError)
-            {
+            if ($msg == AccountException::NoLoginError) {
                 echo jsonTextFormat::encode(['status' => 401,
                     'error' => [
                         'code' => $msg,
@@ -41,8 +35,7 @@ class userAction extends Action {
                 ]]);
                 app::stop();
             }
-            if($msg == AccountException::FatalBanError)
-            {
+            if ($msg == AccountException::FatalBanError) {
                 echo jsonTextFormat::encode(['status' => 401,
                     'error' => [
                         'code' => $msg,
@@ -52,171 +45,89 @@ class userAction extends Action {
             }
         }
     }
-    
-    static function permissionsAction($args) {
-        if(!$args['f']) ajaxHelper::returnStatus(400);
-        if(!$args['id']) ajaxHelper::returnStatus(400);
-        if(!app::$user->isPermission(PERM_ADMIN) && !app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
-        if($args['f'] == 'add')
-        {
-            if(!$args['perm']) ajaxHelper::returnStatus(400);
-            $account = Account::getById($args['id']);
-            if($args['perm'] == 'ADM')
-            {
-                if(!app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
-                $account->addPermission(PERM_ADMIN);
-                $account->pushPermissions();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['perm'] == 'MODER')
-            {
-                $account->addPermission(PERM_MODER);
-                $account->pushPermissions();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['perm'] == 'READ')
-            {
-                $account->addPermission(PERM_READ);
-                $account->pushPermissions();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['perm'] == 'SUPERUSER')
-            {
-                if(!app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
-                $account->addPermission(PERM_SUPERUSER);
-                $account->pushPermissions();
-                ajaxHelper::returnStatus(200);
-            }
-            ajaxHelper::returnStatus(400);
+
+    static function permissionsAction($aperm,$action,$id) {
+        $perm = 0;
+        if ($aperm == 'ADM') {
+            $perm = PERM_ADMIN;
         }
-        if($args['f'] == 'rm')
-        {
-            if(!$args['perm']) ajaxHelper::returnStatus(400);
-            $account = Account::getById($args['id']);
-            if($args['perm'] == 'ADM')
-            {
-                if(!app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
-                $account->rmPermission(PERM_ADMIN);
-                $account->pushPermissions();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['perm'] == 'MODER')
-            {
-                $account->rmPermission(PERM_MODER);
-                $account->pushPermissions();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['perm'] == 'READ')
-            {
-                $account->rmPermission(PERM_READ);
-                $account->pushPermissions();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['perm'] == 'SUPERUSER')
-            {
-                if(!app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
-                $account->rmPermission(PERM_SUPERUSER);
-                $account->pushPermissions();
-                ajaxHelper::returnStatus(200);
-            }
-            ajaxHelper::returnStatus(400);
+        if ($aperm == 'MODER') {
+            $perm = PERM_MODER;
         }
-        
-        ajaxHelper::returnStatus(400);
+        if ($aperm == 'READ') {
+            $perm = PERM_READ;
+        }
+        if ($aperm == 'SUPERUSER') {
+            if (!app::$user->isPermission(PERM_SUPERUSER))
+                ajaxHelper::returnStatus(403);
+            $perm = PERM_SUPERUSER;
+        } else
+            ajaxHelper::returnStatus(400);
+        $account = Account::getById($id);
+        if ($action == 'add') {
+            $account->addPermission($perm);
+        }
+        if ($action == 'rm') {
+            if (!$args['perm'])
+                ajaxHelper::returnStatus(400);
+            $account->rmPermission($perm);
+        }
+        else ajaxHelper::returnStatus(400);
+        $account->pushPermissions();
+        ajaxHelper::returnStatus(200);
     }
-    static function flagsAction($args) {
-        if(!$args['f']) ajaxHelper::returnStatus(400);
-        if(!$args['id']) ajaxHelper::returnStatus(400);
-        if(!app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
-        if($args['f'] == 'add')
-        {
-            if(!$args['flag']) ajaxHelper::returnStatus(400);
-            $account = Account::getById($args['id']);
-            if($args['flag'] == 'HIDDEN')
-            {
-                $account->addFlag(FLAG_HIDDEN);
-                $account->pushFlags();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['flag'] == 'SYSTEM')
-            {
-                $account->addFlag(FLAG_SYSTEM);
-                $account->pushFlags();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['flag'] == 'NOLOGIN')
-            {
-                $account->addFlag(FLAG_NOLOGIN);
-                $account->pushFlags();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['flag'] == 'FATALBAN')
-            {
-                $account->addFlag(FLAG_FATALBAN);
-                $account->pushFlags();
-                ajaxHelper::returnStatus(200);
-            }
-            ajaxHelper::returnStatus(400);
+    static function flagsAction($aperm,$action,$id) {
+        $perm = 0;
+        if ($aperm == 'HIDDEN') {
+            $perm = FLAG_HIDDEN;
         }
-        if($args['f'] == 'rm')
-        {
-            if(!$args['flag']) ajaxHelper::returnStatus(400);
-            $account = Account::getById($args['id']);
-            if($args['flag'] == 'HIDDEN')
-            {
-                $account->rmFlag(FLAG_HIDDEN);
-                $account->pushFlags();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['flag'] == 'SYSTEM')
-            {
-                $account->rmFlag(FLAG_SYSTEM);
-                $account->pushFlags();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['flag'] == 'NOLOGIN')
-            {
-                $account->rmFlag(FLAG_NOLOGIN);
-                $account->pushFlags();
-                ajaxHelper::returnStatus(200);
-            }
-            if($args['flag'] == 'FATALBAN')
-            {
-                $account->rmFlag(FLAG_FATALBAN);
-                $account->pushFlags();
-                ajaxHelper::returnStatus(200);
-            }
-            ajaxHelper::returnStatus(400);
+        if ($aperm == 'SYSTEM') {
+            $perm = FLAG_SYSTEM;
         }
-        
-        ajaxHelper::returnStatus(400);
+        if ($aperm == 'NOLOGIN') {
+            $perm = FLAG_NOLOGIN;
+        }
+        if ($aperm == 'FATALBAN') {
+            $perm = FLAG_FATALBAN;
+        } else
+            ajaxHelper::returnStatus(400);
+        $account = Account::getById($id);
+        if ($action == 'add') {
+            $account->addFlag($perm);
+        }
+        if ($action == 'rm') {
+            if (!$args['perm'])
+                ajaxHelper::returnStatus(400);
+            $account->rmFlag($perm);
+        }
+        else ajaxHelper::returnStatus(400);
+        $account->pushFlags();
+        ajaxHelper::returnStatus(200);
     }
-    static function getuserAction($args)
-    {
+
+    static function getuserAction($id) {
         $results = [];
         $acc = null;
         $isAuth = false;
-        if(!$args['id'])
-        {
-            if(app::$user){
+        if (!$id) {
+            if (app::$user) {
                 $acc = app::$user;
                 $isAuth = true;
-            }
-            else ajaxHelper::returnStatus(400);
-        }
-        else $acc = Account::getById($args['id']);
+            } else
+                ajaxHelper::returnStatus(400);
+        } else
+            $acc = Account::getById($id);
         $results['id'] = $acc->id;
         $results['login'] = $acc->login;
         $results['permisions'] = $acc->permissions;
         $results['flags'] = $acc->flags;
         $results['isAuth'] = $isAuth;
         echo jsonTextFormat::encode(['status' => 200,
-                    'user' => $results]);
+            'user' => $results]);
         app::stop();
     }
-    static function exitAction($args) {
-        if (!app::$user)
-            ajaxHelper::returnStatus(400);
+
+    static function exitAction() {
         app::$user->close();
         setcookie("auth_token", '', 0);
         setcookie("auth_tokenid", '', 0);
