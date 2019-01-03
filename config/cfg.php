@@ -3,7 +3,7 @@ return [
     'db' => [
         'connect'=>'mysql:host=localhost;dbname=framework',
         'login'=>'framework',
-        'password'=>'8EaMH8cy4Q1ZFjC6!'
+        'password'=>''
     ],
     'users' => [
         'groupmap' => [
