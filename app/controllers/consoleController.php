@@ -41,7 +41,7 @@ class consoleController extends Controller {
         echo consoleHelper::textColor("Справка\n",consoleHelper::TEXTCOLOR_GREEN);
         consoleHelpCreate('-a setpassword -id [ID] -pass [password]','Смена пароля пользователя');
         consoleHelpCreate('-a repairadmin','Восстановить привилегии суперпользователя ID 1');
-        consoleHelpCreate('-a getuser [ID]','Информация о пользователе');
+        consoleHelpCreate('-a getuser -id [ID]','Информация о пользователе');
         consoleHelpCreate('-r api -a flags -f add -id [ID] -flag [FLAG] -id [ID]','Добавить флаг пользователю');
         consoleHelpCreate('-r api -a flags -f rm -id [ID] -flag [FLAG]','Удалить флаг у пользователя');
         consoleHelpCreate('-r api -a permissions -f add -id [ID] -perm [PERMISSION]','Добавить привилегию пользователю');
