@@ -81,9 +81,9 @@ class app {
 
     static function stop() {
         app::$status = app::STATUS_STOP;
-        if (!app::$type || app::$type = app::TYPE_WEB)
+        if (!app::$type || app::$type == app::TYPE_WEB)
             exit();
-        if (app::$type = app::TYPE_TEST)
+        if (app::$type == app::TYPE_TEST)
             app::$test->stop();
     }
 
