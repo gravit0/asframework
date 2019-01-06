@@ -172,7 +172,7 @@ class Account extends AbstractUser
     }
     function reg($login,$passwordhash,$email)
     {
-        $results = app::$db->prepare('INSERT INTO `users` (`login`, `passwd`, `email`, `permissions`, `flags`) VALUES ( :login, :pass, :email, \'\', \'\')');
+        $results = app::$db->prepare('INSERT INTO `users` (`login`, `passwd`, `email`, `permissions`, `flags`) VALUES ( :login, :pass, :email, 0, 0)');
         //$results->bindParam(':userid', $this->id, PDO::PARAM_INT);
         $results->bindParam(':login', $login, PDO::PARAM_STR);
         $results->bindParam(':pass', $passwordhash, PDO::PARAM_STR);
