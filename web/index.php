@@ -30,7 +30,10 @@ else {
 }
 $file = 'controllers\\'.$controllerName;
 app::loadModule("Account");
+if(!$args['access_token'])
 app::$user = Account::getByToken();
+else
+app::$user = Account::getByAccessToken();
 try{
     app::$controller = new $file;
 }

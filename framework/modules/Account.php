@@ -135,6 +135,27 @@ class Account extends AbstractUser
             return $account;
         }
     }
+    static function getByAccessToken($access_token)
+    {
+        if(!app::$db)app:: $db = new PDOConnect;
+        $results = app::$db->prepare('SELECT * FROM users WHERE access_token = :access_token LIMIT 1');
+        $results->bindParam(':access_token', $access_token, PDO::PARAM_STR);
+        $results->execute();
+        $results = $results->fetch(PDO::FETCH_ASSOC);
+        if($results)
+        {
+            $acc = new Account;
+            foreach($results as $key => $v)
+            {
+                $acc->$key = $v;
+            }
+            $acc->permissions = (integer) $acc->permissions;
+            $acc->flags = (integer) $acc->flags;
+            $acc->id = (integer) $acc->id;
+            $acc->isAuth = true;
+            return $acc;
+        }
+    }
     static function getByLogin($login)
     {
         if(!app::$db)app:: $db = new PDOConnect;
@@ -172,11 +193,12 @@ class Account extends AbstractUser
     }
     function reg($login,$passwordhash,$email)
     {
-        $results = app::$db->prepare('INSERT INTO `users` (`login`, `passwd`, `email`, `permissions`, `flags`) VALUES ( :login, :pass, :email, 0, 0)');
+        $results = app::$db->prepare('INSERT INTO `users` (`login`, `passwd`, `email`, `permissions`, `flags`, `access_token`) VALUES ( :login, :pass, :email, 0, 0, :access_token)');
         //$results->bindParam(':userid', $this->id, PDO::PARAM_INT);
         $results->bindParam(':login', $login, PDO::PARAM_STR);
         $results->bindParam(':pass', $passwordhash, PDO::PARAM_STR);
         $results->bindParam(':email', $email, PDO::PARAM_STR);
+        $results->bindParam(':access_token', $this->createToken(), PDO::PARAM_STR);
         $results->execute();
     }
     function createToken()
