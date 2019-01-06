@@ -29,6 +29,7 @@ else {
     $controllerName = $args['r'].'Controller';
 }
 $file = 'controllers\\'.$controllerName;
+app::loadModule("Account");
 app::$user = Account::getByToken();
 try{
     app::$controller = new $file;
