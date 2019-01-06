@@ -1,5 +1,9 @@
 <?php
 const DirSite = '/srv/http/asframework/'; //Change to your site directory
+const DirFramework = '/framework/';
+const DirConfigs = '/config/';
+const DirAppData = '/app/';
+const DirFrameworkModules = '/framework/modules/';
 const DirCSS = '/data/css/';
 const DirJS = '/data/js/';
 const cfg_class_logger = '\\loggers\\FileLogger';

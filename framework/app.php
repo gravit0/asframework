@@ -34,7 +34,7 @@ class app {
     const STATUS_RENDER = 7;
     const STATUS_POSTRUN = 8;
     const STATUS_STOP = 9;
-    const FLAG_CSRF_VERIFY = 1 << 0;
+    const FLAG_NOCSRF_VERIFY = 1 << 0;
     const FLAG_VISUAL_CONTROLLER = 1 << 1;
 
     static function exception_handler($e) {
@@ -55,12 +55,12 @@ class app {
                 } catch (Error $e) {
                     echo 'Exception!<br>';
                     echo 'Class ' . get_class($e) . '<br>';
-                    echo 'Message ' . $e->getMessage() . '<br>';
+                    echo 'Message ' . htmlspecialchars($e->getMessage()) . '<br>';
                     echo 'Trace ' . json_encode($e->getTrace()) . '<br>';
                 } catch (Exception $ex) {
                     echo 'Exception!<br>';
                     echo 'Class ' . get_class($e) . '<br>';
-                    echo 'Message ' . $e->getMessage() . '<br>';
+                    echo 'Message ' . htmlspecialchars($e->getMessage()) . '<br>';
                     echo 'Trace ' . json_encode($e->getTrace()) . '<br>';
                 }
             } else {
@@ -88,9 +88,15 @@ class app {
     }
 
     static function load($class_name) {
-        $class = DirSite . 'app/' . str_replace('\\', '/', $class_name) . '.php';
+        $class = DirSite . DirAppData . str_replace('\\', '/', $class_name) . '.php';
         if (!file_exists($class))
             throw new сlassNotLoadedException($class_name);
+        include $class;
+    }
+    static function loadModule($module_name) {
+        $class = DirSite . DirFrameworkModules . $module_name . '.php';
+        if (!file_exists($class))
+            throw new сlassNotLoadedException($module_name);
         include $class;
     }
 
@@ -116,5 +122,23 @@ class app {
         spl_autoload_register(array('app', 'load'));
         set_exception_handler(array('app', 'exception_handler'));
     }
-
+    
+    static function verify() {
+        if (app::$controller->flags & Controller::CFLAG_VERIFY_CSRF && !(app::$options & app::FLAG_NOCSRF_VERIFY)) {
+            $userid = 0;
+            if (app::$user)
+                $userid = app::$user->id;
+            $res = \helpers\ajaxHelper::verifyCSRFToken($args['csrf-token'], app::$controller->_csrf_formkey($args['a']), $userid);
+            if (!$res)
+                throw new BadRequestException('bad csrf token: ' . $args['csrf-token']);
+        }
+        if (app::$controller->flags & Controller::CFLAG_CONSOLEONLY && app::$type != app::TYPE_CONSOLE) {
+            visual::renderHTTPError(403);
+            app::stop();
+        }
+        if (app::$controller->flags & Controller:: CFLAG_VISIBLEONLY && app::$type != app::TYPE_WEB) {
+            visual::renderHTTPError(403);
+            app::stop();
+        }
+    }
 }

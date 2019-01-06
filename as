@@ -30,6 +30,7 @@ $controllerName = null;
 if(!isset($args['r'])) $controllerName = 'consoleController';
 else $controllerName = $args['r'].'Controller';
 $file = 'controllers\\'.$controllerName;
+app::loadModule("Account");
 app::$user = Account::getById(1);
 try{
     app::$controller = new $file;
