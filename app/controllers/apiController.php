@@ -33,7 +33,7 @@ class apiController extends Controller {
         $pass = $args['pass'];
         if (!$login || !$pass || app::$user)
             ajaxHelper::returnStatus(400);
-        \controllers\api\userAction::authAction($args);
+        \controllers\api\userAction::authAction($login,$pass);
     }
     function regAction($args)
     {
