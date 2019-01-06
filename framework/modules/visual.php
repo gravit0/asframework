@@ -66,3 +66,7 @@ class visual
         echo visual::$head;
     }
 }
+class visualException extends appException {
+    //put your code here
+    const ALREADY_TAKEN_PLACE = 0;
+}

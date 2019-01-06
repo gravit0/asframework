@@ -44,14 +44,12 @@ catch(сlassNotLoadedException $e)
 }
 $func = null;
 if (isset($args['a']) && $args['a']) $func = $args['a'].'Action';
-app::$status = app::STATUS_VERIFY;
-if(app::$options & app::FLAG_CSRF_VERIFY)
+if((app::$options & app::FLAG_VISUAL_CONTROLLER))
 {
-    $userid = 0;
-    if(app::$user) $userid = app::$user->id;
-    $res = \helpers\ajaxHelper::verifyCSRFToken($args['csrf-token'],app::$controller->_csrf_formkey($args['a']),$userid);
-    if(!$res) throw new BadRequestException('bad csrf token: '.$args['csrf-token']);
+    app::loadModule("visual");
 }
+app::$status = app::STATUS_VERIFY;
+app::verify();
 if (!$func || !method_exists(app::$controller, $func)) {
     $func = 'request';
 }

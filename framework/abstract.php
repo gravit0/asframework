@@ -1,11 +1,16 @@
 <?php
 abstract class Controller
 {
+    public $flags = 0;
     abstract function request($args);
     public function _csrf_formkey($a)
     {
         return $a;
     }
+    const CFLAG_VISIBLEONLY = 1 << 0;
+    const CFLAG_CONSOLEONLY = 1 << 1;
+    const CFLAG_RETURNVIEW = 1 << 2;
+    const CFLAG_VERIFY_CSRF = 1 << 3;
 }
 abstract class Action
 {

@@ -19,9 +19,10 @@ use app;
  */
 class apiController extends Controller {
     //put your code here
+    public $flags = Controller::CFLAG_VERIFY_CSRF;
     function __construct()
     {
-        app::$options = app::$options | app::FLAG_CSRF_VERIFY;
+        //app::$options = app::$options | app::FLAG_CSRF_VERIFY;
     }
     function request($args)
     {
