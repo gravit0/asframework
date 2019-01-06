@@ -139,7 +139,7 @@ class Account extends AbstractUser
     {
         if(!app::$db)app:: $db = new PDOConnect;
         $results = app::$db->prepare('SELECT * FROM users WHERE login = :login LIMIT 1');
-        $results->bindParam(':login', $login, PDO::PARAM_INT);
+        $results->bindParam(':login', $login, PDO::PARAM_STR);
         $results->execute();
         $results = $results->fetch(PDO::FETCH_ASSOC);
         if($results)
