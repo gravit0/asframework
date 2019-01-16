@@ -8,6 +8,7 @@
 
 namespace controllers;
 
+use controllers\api\userAction;
 use helpers\ajaxHelper;
 use textFormats\jsonTextFormat;
 use Controller;
@@ -40,7 +41,7 @@ class apiController extends Controller
         $pass = $args['pass'];
         if (!$login || !$pass || app::$user)
             ajaxHelper::returnStatus(400);
-        \controllers\api\userAction::authAction($login, $pass);
+        userAction::authAction($login, $pass);
     }
 
     function regAction($args)
@@ -62,7 +63,7 @@ class apiController extends Controller
         if (!app::$user->isPermission(PERM_ADMIN) && !app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
         if (!$args['perm'])
             ajaxHelper::returnStatus(400);
-        \controllers\api\userAction::permissionsAction($args['perm'], $args['f'], $args['id']);
+        userAction::permissionsAction($args['perm'], $args['f'], $args['id']);
     }
 
     function flagsAction($args)
@@ -72,19 +73,19 @@ class apiController extends Controller
         if (!app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
         if (!$args['flag'])
             ajaxHelper::returnStatus(400);
-        \controllers\api\userAction::FlagsAction($args['flag'], $args['f'], $args['id']);
+        userAction::FlagsAction($args['flag'], $args['f'], $args['id']);
     }
 
     function exitAction($args)
     {
         if (!app::$user)
             ajaxHelper::returnStatus(400);
-        \controllers\api\userAction::exitAction();
+        userAction::exitAction();
     }
 
     function getuserAction($args)
     {
-        \controllers\api\userAction::getuserAction($args);
+        userAction::getuserAction($args);
     }
 
     function getgroupmapAction($args)

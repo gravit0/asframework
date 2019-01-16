@@ -34,6 +34,7 @@ class indexController extends Controller
         $log->log('request user', 'I');
         visual::$activeid = 'index';
         if (!$args['id']) $args['id'] = 1;
+        if(app::$user) $args['id'] = app::$user->id;
         $account = Account::getById($args['id']);
         if (!$account) {
             visual::renderHttpError(404);

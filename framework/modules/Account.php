@@ -199,7 +199,7 @@ class Account extends AbstractUser
 
     /**
      * @param $access_token
-     * @return Account
+     * @return Account|null
      */
     static function getByAccessToken($access_token)
     {
@@ -219,6 +219,7 @@ class Account extends AbstractUser
             $acc->isAuth = true;
             return $acc;
         }
+        return null;
     }
 
     /**

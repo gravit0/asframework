@@ -26,6 +26,7 @@ class SecurityHelper
             if ($c > 'a' && $c < 'z') $res = true;
             if (!$res) return false;
         }
+        return true;
     }
 
     static function isAllowLetter($str)
@@ -40,5 +41,6 @@ class SecurityHelper
             if ($c == ' ' || $c == '-' || $c == '_') $res = true;
             if (!$res) return false;
         }
+        return true;
     }
 }

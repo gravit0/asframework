@@ -30,7 +30,7 @@ app::loadModule("Account");
 app::$user = Account::getById(1);
 try {
     app::$controller = new $file;
-} catch (сlassNotLoadedException $e) {
+} catch (classNotLoadedException $e) {
     $file = 'controllers\\apiController';
     app::$controller = new $file;
 }

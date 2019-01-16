@@ -113,13 +113,13 @@ class kernel
 
     /**
      * @param $class_name
-     * @throws сlassNotLoadedException
+     * @throws classNotLoadedException
      */
     static function load($class_name)
     {
         $class = kernel::$currentdir . DirAppData . str_replace('\\', '/', $class_name) . '.php';
         if (!file_exists($class))
-            throw new сlassNotLoadedException($class_name);
+            throw new classNotLoadedException($class_name);
         include $class;
     }
 }

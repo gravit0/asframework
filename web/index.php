@@ -36,7 +36,7 @@ else
     app::$user = Account::getByAccessToken($args['access_token']);
 try {
     app::$controller = new $file;
-} catch (сlassNotLoadedException $e) {
+} catch (classNotLoadedException $e) {
     if (isset($args['r'])) {
         visual::renderHttpError(404);
         app::stop();

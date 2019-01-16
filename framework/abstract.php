@@ -29,6 +29,7 @@ abstract class AbstractUser
     public $email;
     public $token;
     public $tokenid;
+    public $last_login;
     public $arr;
     public $isAuth;
     public $permissions;
@@ -48,10 +49,6 @@ abstract class AbstractUser
 
     abstract public function getAllPermissions();
 
-    abstract public static function getById($id);
-
-    abstract public static function verify($id, $token);
-
     abstract public function reg($login, $passwordhash, $email);
 
     abstract public function setPassword($newpass);
@@ -69,7 +66,7 @@ class appException extends Exception
 {
 }
 
-class сlassNotLoadedException extends appException
+class classNotLoadedException extends appException
 {
 }
 

@@ -16,6 +16,9 @@ class app
      * @var Controller
      */
     static $controller;
+    /**
+     * @var AbstractTest
+     */
     static $test;
     /**
      * @var Request
@@ -34,6 +37,10 @@ class app
      * @var Account
      */
     static $user;
+    /**
+     * @var \loggers\FileLogger
+     */
+    static $logger;
     static $type;
     static $status;
 
@@ -53,12 +60,15 @@ class app
     const FLAG_NOCSRF_VERIFY = 1;
     const FLAG_VISUAL_CONTROLLER = 2;
 
+    /**
+     * @param $e Exception
+     */
     static function exception_handler($e)
     {
         if (!($e instanceof NoLoggableException)) {
             $class = cfg_class_logger;
-            $logger = new $class;
-            $logger->err(['IP' => inet_ntop(app::$request->ip), 'IPv' => ((string)app::$request->versionIp), 'class' => get_class($e), 'message' => $e->getMessage(), 'Trace:' => $e->getTrace()], 'Exception');
+            app::$logger = new $class;
+            app::$logger->err(['IP' => inet_ntop(app::$request->ip), 'IPv' => ((string)app::$request->versionIp), 'class' => get_class($e), 'message' => $e->getMessage(), 'Trace:' => $e->getTrace()], 'Exception');
         }
         if (app::$type == app::TYPE_CONSOLE) {
             echo "Exception!\n";
@@ -109,7 +119,7 @@ class app
     {
         $class = DirSite . DirAppData . str_replace('\\', '/', $class_name) . '.php';
         if (!file_exists($class))
-            throw new сlassNotLoadedException($class_name);
+            throw new classNotLoadedException($class_name);
         include $class;
     }
 
@@ -117,7 +127,7 @@ class app
     {
         $class = DirSite . DirFrameworkModules . $module_name . '.php';
         if (!file_exists($class))
-            throw new сlassNotLoadedException($module_name);
+            throw new classNotLoadedException($module_name);
         include $class;
     }
 

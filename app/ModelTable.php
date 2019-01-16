@@ -6,6 +6,8 @@
  * and open the template in the editor.
  */
 
+use db\PDOConnect;
+
 /**
  * Description of ModelTable
  *

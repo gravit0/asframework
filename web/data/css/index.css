@@ -73,9 +73,9 @@ body {
     background-image: -ms-linear-gradient(top, #c73b3b 0%, #a51919 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a51919', endColorstr='#a51919', GradientType=0);
     background-image: linear-gradient(top, #c73b3b 0%, #a51919 100%);
-    -webkit-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-    -moz-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-    box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0 0 2px #bababa, inset 0 0 1px #ffffff;
+    -moz-box-shadow: 0 0 2px #bababa, inset 0 0 1px #ffffff;
+    box-shadow: 0 0 2px #bababa, inset 0 0 1px #ffffff;
 }
 
 .button_green {
@@ -87,9 +87,9 @@ body {
     background-image: -ms-linear-gradient(top, #3bc74c 0%, #19a53a 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#19a53a', endColorstr='#19a53a', GradientType=0);
     background-image: linear-gradient(top, #3bc74c 0%, #19a53a 100%);
-    -webkit-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-    -moz-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-    box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0 0 2px #bababa, inset 0 0 1px #ffffff;
+    -moz-box-shadow: 0 0 2px #bababa, inset 0 0 1px #ffffff;
+    box-shadow: 0 0 2px #bababa, inset 0 0 1px #ffffff;
 }
 
 .button_blue {
@@ -101,9 +101,9 @@ body {
     background-image: -ms-linear-gradient(top, #283c8f 0%, #1e19a5 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e19a5', endColorstr='#1e19a5', GradientType=0);
     background-image: linear-gradient(top, #283c8f 0%, #1e19a5 100%);
-    -webkit-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-    -moz-box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
-    box-shadow: 0px 0px 2px #bababa, inset 0px 0px 1px #ffffff;
+    -webkit-box-shadow: 0 0 2px #bababa, inset 0 0 1px #ffffff;
+    -moz-box-shadow: 0 0 2px #bababa, inset 0 0 1px #ffffff;
+    box-shadow: 0 0 2px #bababa, inset 0 0 1px #ffffff;
 }
 
 .textinput {

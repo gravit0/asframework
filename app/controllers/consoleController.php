@@ -19,6 +19,8 @@ use visual;
  * Description of apiController
  *
  * @author gravit
+ * @param $cmd
+ * @param $value
  */
 function consoleHelpCreate($cmd, $value)
 {

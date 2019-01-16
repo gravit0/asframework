@@ -3,6 +3,7 @@
 namespace controllers\api;
 
 use Account;
+use AccountException;
 use textFormats\jsonTextFormat;
 use helpers\ajaxHelper;
 use Action;
@@ -71,7 +72,7 @@ class userAction extends Action
             $account->addPermission($perm);
         }
         if ($action == 'rm') {
-            if (!$args['perm'])
+            if (!$perm)
                 ajaxHelper::returnStatus(400);
             $account->rmPermission($perm);
         } else ajaxHelper::returnStatus(400);
@@ -100,7 +101,7 @@ class userAction extends Action
             $account->addFlag($perm);
         }
         if ($action == 'rm') {
-            if (!$args['perm'])
+            if (!$perm)
                 ajaxHelper::returnStatus(400);
             $account->rmFlag($perm);
         } else ajaxHelper::returnStatus(400);
