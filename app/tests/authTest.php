@@ -21,7 +21,12 @@ class authTest extends AbstractTest
 
     function stop()
     {
-        $test->stopFlag = true;
+        $this->stopFlag = true;
+
+    }
+
+    function end()
+    {
 
     }
 }

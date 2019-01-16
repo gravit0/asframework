@@ -12,13 +12,27 @@ class Request
 
 class app
 {
-
+    /**
+     * @var Controller
+     */
     static $controller;
     static $test;
+    /**
+     * @var Request
+     */
     static $request;
     static $options;
+    /**
+     * @var array
+     */
     static $cfg;
+    /**
+     * @var \db\PDOConnect
+     */
     static $db;
+    /**
+     * @var Account
+     */
     static $user;
     static $type;
     static $status;

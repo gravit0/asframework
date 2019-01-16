@@ -1,9 +1,9 @@
 <?php
-
+use \db\PDOConnect;
 class EventManager
 {
     public $events;
-    const OPTION_CRICICAL = 1 << 0;
+    const OPTION_CRICICAL = 1;
 
     static function getNewEventsReceiver($userid)
     {

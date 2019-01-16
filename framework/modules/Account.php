@@ -11,6 +11,11 @@ class AccountException extends appException
 
 class Account extends AbstractUser
 {
+    /**
+     * @param $login
+     * @param $pass
+     * @throws AccountException
+     */
     function auth($login, $pass)
     {
         if (!app::$db) app::$db = new PDOConnect;
@@ -36,12 +41,18 @@ class Account extends AbstractUser
         } else throw new AccountException(AccountException::AuthError);
     }
 
+    /**
+     *
+     */
     function close()
     {
         if ($this->tokenid) $this->deleteToken($this->tokenid);
         $this->isAuth = false;
     }
 
+    /**
+     * @return array
+     */
     function getAllPermissions()
     {
         $result = [];
@@ -52,41 +63,67 @@ class Account extends AbstractUser
         return $result;
     }
 
+    /**
+     * @return int
+     */
     function isSuperuser()
     {
         return $this->permissions & PERM_SUPERUSER;
     }
 
+    /**
+     * @param $perm
+     * @return int
+     */
     function isPermission($perm)
     {
         return $this->permissions & $perm;
     }
 
+    /**
+     * @param $group
+     */
     function addPermission($group)
     {
         $this->permissions = $this->permissions | $group;
     }
 
+    /**
+     * @param $group
+     */
     function rmPermission($group)
     {
         $this->permissions = $this->permissions ^ $group;
     }
 
+    /**
+     * @param $flag
+     * @return int
+     */
     function isFlag($flag)
     {
         return $this->flags & $flag;
     }
 
+    /**
+     * @param $group
+     */
     function addFlag($group)
     {
         $this->flags = $this->flags | $group;
     }
 
+    /**
+     * @param $group
+     */
     function rmFlag($group)
     {
         $this->flags = $this->flags ^ $group;
     }
 
+    /**
+     * @param $pass
+     */
     function setPassword($pass)
     {
         $results = app::$db->prepare('UPDATE `users` SET `passwd` = :pass WHERE `id` = :id');
@@ -96,6 +133,9 @@ class Account extends AbstractUser
         $results->execute();
     }
 
+    /**
+     *
+     */
     function pushPermissions()
     {
         $results = app::$db->prepare('UPDATE `users` SET `permissions` = :perm WHERE `id` = :id');
@@ -104,6 +144,9 @@ class Account extends AbstractUser
         $results->execute();
     }
 
+    /**
+     *
+     */
     function pushFlags()
     {
         $results = app::$db->prepare('UPDATE `users` SET `flags` = :perm WHERE `id` = :id');
@@ -112,6 +155,10 @@ class Account extends AbstractUser
         $results->execute();
     }
 
+    /**
+     * @param $id
+     * @return Account|null
+     */
     static function getById($id)
     {
         if (!app::$db) app:: $db = new PDOConnect;
@@ -130,8 +177,12 @@ class Account extends AbstractUser
             $acc->isAuth = true;
             return $acc;
         }
+        return null;
     }
 
+    /**
+     * @return Account|null
+     */
     static function getByToken()
     {
         $token = $_COOKIE['auth_token'];
@@ -146,6 +197,10 @@ class Account extends AbstractUser
         }
     }
 
+    /**
+     * @param $access_token
+     * @return Account
+     */
     static function getByAccessToken($access_token)
     {
         if (!app::$db) app:: $db = new PDOConnect;
@@ -166,6 +221,10 @@ class Account extends AbstractUser
         }
     }
 
+    /**
+     * @param $login
+     * @return Account|null
+     */
     static function getByLogin($login)
     {
         if (!app::$db) app:: $db = new PDOConnect;
@@ -184,8 +243,14 @@ class Account extends AbstractUser
             $acc->isAuth = true;
             return $acc;
         }
+        return null;
     }
 
+    /**
+     * @param $id
+     * @param $token
+     * @return bool
+     */
     static function verify($id, $token)
     {
         if (!app::$db) app:: $db = new PDOConnect;
@@ -199,6 +264,11 @@ class Account extends AbstractUser
         } else return false;
     }
 
+    /**
+     * @param $login
+     * @param $passwordhash
+     * @param $email
+     */
     function reg($login, $passwordhash, $email)
     {
         $results = app::$db->prepare('INSERT INTO `users` (`login`, `passwd`, `email`, `permissions`, `flags`, `access_token`) VALUES ( :login, :pass, :email, 0, 0, :access_token)');
@@ -210,6 +280,9 @@ class Account extends AbstractUser
         $results->execute();
     }
 
+    /**
+     * @return string
+     */
     function createToken()
     {
         $chars = 'abcdefhiknrstyzABCDEFGHKNQRSTYZ1234567890';
@@ -221,6 +294,11 @@ class Account extends AbstractUser
         return $string;
     }
 
+    /**
+     * @param $token
+     * @param null $ip
+     * @return string
+     */
     function addSession($token, $ip = null)
     {
         $results = app::$db->prepare('INSERT INTO `sessions` (`token`, `ip`, `user_id`) VALUES ( :token , :ip, :userid)');
@@ -229,11 +307,14 @@ class Account extends AbstractUser
         $binIP = null;
         if ($ip) $binIP = $ip;
         else $binIP = app::$request->ip;
-        $results->bindParam(':ip', $ip, PDO::PARAM_STR);
+        $results->bindParam(':ip', $binIP, PDO::PARAM_STR);
         $results->execute();
         return app::$db->lastInsertId();
     }
 
+    /**
+     * @return array|bool|PDOStatement
+     */
     function getSessions()
     {
         $results = app::$db->prepare('SELECT * FROM sessions WHERE user_id = :id');
@@ -245,6 +326,9 @@ class Account extends AbstractUser
         } else return [];
     }
 
+    /**
+     * @param $id
+     */
     function deleteToken($id)
     {
         $results = app::$db->prepare('DELETE FROM `sessions` WHERE `id` = :id');

@@ -44,6 +44,10 @@ class visual
         visual::renderView(visual::$viewName, visual::$viewArgs);
     }
 
+    /**
+     * @param $err
+     * @throws visualException
+     */
     static function renderHttpError($err)
     {
         if ($err == 404) {
@@ -53,6 +57,9 @@ class visual
         visual::render('error/' . $err);
     }
 
+    /**
+     *
+     */
     static function renderHead()
     {
         if (!(visual::$flags & visual::FLAG_NO_STD_CSS)) {

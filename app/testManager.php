@@ -2,16 +2,25 @@
 
 class TestManager
 {
+    /**
+     *
+     */
     function initTestApp()
     {
         app::$type = app::TYPE_TEST;
     }
 
+    /**
+     *
+     */
     function stopTestApp()
     {
         app::$type = app::TYPE_WEB;
     }
 
+    /**
+     * @param $classname
+     */
     function startTest($classname)
     {
         $test = new $classname;
@@ -23,6 +32,9 @@ class TestManager
         $test->end();
     }
 
+    /**
+     * @return array
+     */
     function appDump()
     {
         $result = [];
