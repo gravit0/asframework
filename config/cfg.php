@@ -1,9 +1,9 @@
 <?php
 return [
     'db' => [
-        'connect'=>'mysql:host=localhost;dbname=framework',
-        'login'=>'framework',
-        'password'=>''
+        'connect' => 'mysql:host=localhost;dbname=framework',
+        'login' => 'framework',
+        'password' => ''
     ],
     'users' => [
         'groupmap' => [
@@ -20,15 +20,15 @@ return [
         ]
     ],
     'framework' => [
-        'name'=> 'ASFramework',
-        'version'=> '0.2.0',
-        'release'=> 'alpha',
-        'builder'=> 'Gravit',
-        'info'=> 'Test Server'
+        'name' => 'ASFramework',
+        'version' => '0.2.0',
+        'release' => 'alpha',
+        'builder' => 'Gravit',
+        'info' => 'Test Server'
     ],
     'visual' => [
-            'stdLayout' => 'main',
-            'stdJavaScript' => 'index.js',
-            'stdCSS' => 'index.css'
-        ]
+        'stdLayout' => 'main',
+        'stdJavaScript' => 'index.js',
+        'stdCSS' => 'index.css'
+    ]
 ];

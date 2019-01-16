@@ -1,24 +1,28 @@
 <?php
+
 class TestManager
 {
     function initTestApp()
     {
-        app::$type=app::TYPE_TEST;
+        app::$type = app::TYPE_TEST;
     }
+
     function stopTestApp()
     {
-        app::$type=app::TYPE_WEB;
+        app::$type = app::TYPE_WEB;
     }
+
     function startTest($classname)
     {
         $test = new $classname;
-        $test->stopFlag=false;
-        $test->manager=$this;
+        $test->stopFlag = false;
+        $test->manager = $this;
         $test->init();
         app::$test = $test;
         $test->body();
         $test->end();
     }
+
     function appDump()
     {
         $result = [];
@@ -29,7 +33,7 @@ class TestManager
             'tokenid' => app::$user->tokenid,
             'permissions' => app::$user->permissions,
             'flags' => app::$user->flags,
-            ];
+        ];
         return $result;
     }
 }

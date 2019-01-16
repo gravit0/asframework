@@ -1,6 +1,7 @@
 <?php
 
-class Request {
+class Request
+{
 
     public $post;
     public $get;
@@ -9,7 +10,8 @@ class Request {
 
 }
 
-class app {
+class app
+{
 
     static $controller;
     static $test;
@@ -37,11 +39,12 @@ class app {
     const FLAG_NOCSRF_VERIFY = 1;
     const FLAG_VISUAL_CONTROLLER = 2;
 
-    static function exception_handler($e) {
-        if(!($e instanceof NoLoggableException)) {
+    static function exception_handler($e)
+    {
+        if (!($e instanceof NoLoggableException)) {
             $class = cfg_class_logger;
             $logger = new $class;
-            $logger->err(['IP' => inet_ntop(app::$request->ip), 'IPv' => ((string) app::$request->versionIp), 'class' => get_class($e), 'message' => $e->getMessage(), 'Trace:' => $e->getTrace()], 'Exception');
+            $logger->err(['IP' => inet_ntop(app::$request->ip), 'IPv' => ((string)app::$request->versionIp), 'class' => get_class($e), 'message' => $e->getMessage(), 'Trace:' => $e->getTrace()], 'Exception');
         }
         if (app::$type == app::TYPE_CONSOLE) {
             echo "Exception!\n";
@@ -51,7 +54,7 @@ class app {
         } else if (!app::$type || app::$type == app::TYPE_WEB) {
             if (DEBUG_MODE) {
                 try {
-                    visual::renderView("exceptions/debug",["e"=>$e]);
+                    visual::renderView("exceptions/debug", ["e" => $e]);
                 } catch (Error $e) {
                     echo 'Exception!<br>';
                     echo 'Class ' . get_class($e) . '<br>';
@@ -79,7 +82,8 @@ class app {
         }
     }
 
-    static function stop() {
+    static function stop()
+    {
         app::$status = app::STATUS_STOP;
         if (!app::$type || app::$type == app::TYPE_WEB)
             exit();
@@ -87,20 +91,24 @@ class app {
             app::$test->stop();
     }
 
-    static function load($class_name) {
+    static function load($class_name)
+    {
         $class = DirSite . DirAppData . str_replace('\\', '/', $class_name) . '.php';
         if (!file_exists($class))
             throw new сlassNotLoadedException($class_name);
         include $class;
     }
-    static function loadModule($module_name) {
+
+    static function loadModule($module_name)
+    {
         $class = DirSite . DirFrameworkModules . $module_name . '.php';
         if (!file_exists($class))
             throw new сlassNotLoadedException($module_name);
         include $class;
     }
 
-    static function includePHPFile($__file, $vars = null) {
+    static function includePHPFile($__file, $vars = null)
+    {
         if (!$vars)
             $vars = [];
         extract($vars, EXTR_OVERWRITE);
@@ -109,7 +117,8 @@ class app {
         include $__file;
     }
 
-    static function init() {
+    static function init()
+    {
         app::$status = app::STATUS_PRELOAD;
         app::$request = new Request;
         if (app::$type != app::TYPE_CONSOLE) {
@@ -122,8 +131,9 @@ class app {
         spl_autoload_register(array('app', 'load'));
         set_exception_handler(array('app', 'exception_handler'));
     }
-    
-    static function verify($args) {
+
+    static function verify($args)
+    {
         if (app::$controller->flags & Controller::CFLAG_VERIFY_CSRF && !(app::$options & app::FLAG_NOCSRF_VERIFY)) {
             $userid = 0;
             if (app::$user)

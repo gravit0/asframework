@@ -13,14 +13,16 @@ namespace textFormats;
  *
  * @author gravit
  */
-class jsonTextFormat {
+class jsonTextFormat
+{
     //put your code here
     static function encode($data)
     {
         return json_encode($data);
     }
+
     static function decode($data)
     {
-        return json_decode($data,true);
+        return json_decode($data, true);
     }
 }

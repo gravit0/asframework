@@ -8,9 +8,11 @@ use helpers\ajaxHelper;
 use Action;
 use app;
 
-class userAction extends Action {
+class userAction extends Action
+{
 
-    static function authAction($login, $pass) {
+    static function authAction($login, $pass)
+    {
         try {
             app::$user = new Account;
             app::$user->auth($login, $pass);
@@ -24,7 +26,7 @@ class userAction extends Action {
                     'error' => [
                         'code' => $msg,
                         'text' => 'Login or password is incorrect'
-                ]]);
+                    ]]);
                 app::stop();
             }
             if ($msg == AccountException::NoLoginError) {
@@ -32,7 +34,7 @@ class userAction extends Action {
                     'error' => [
                         'code' => $msg,
                         'text' => 'This account is not allowed to sign in.'
-                ]]);
+                    ]]);
                 app::stop();
             }
             if ($msg == AccountException::FatalBanError) {
@@ -40,13 +42,14 @@ class userAction extends Action {
                     'error' => [
                         'code' => $msg,
                         'text' => 'You are permanently banned'
-                ]]);
+                    ]]);
                 app::stop();
             }
         }
     }
 
-    static function permissionsAction($aperm,$action,$id) {
+    static function permissionsAction($aperm, $action, $id)
+    {
         $perm = 0;
         if ($aperm == 'ADM') {
             $perm = PERM_ADMIN;
@@ -71,12 +74,13 @@ class userAction extends Action {
             if (!$args['perm'])
                 ajaxHelper::returnStatus(400);
             $account->rmPermission($perm);
-        }
-        else ajaxHelper::returnStatus(400);
+        } else ajaxHelper::returnStatus(400);
         $account->pushPermissions();
         ajaxHelper::returnStatus(200);
     }
-    static function flagsAction($aperm,$action,$id) {
+
+    static function flagsAction($aperm, $action, $id)
+    {
         $perm = 0;
         if ($aperm == 'HIDDEN') {
             $perm = FLAG_HIDDEN;
@@ -99,13 +103,13 @@ class userAction extends Action {
             if (!$args['perm'])
                 ajaxHelper::returnStatus(400);
             $account->rmFlag($perm);
-        }
-        else ajaxHelper::returnStatus(400);
+        } else ajaxHelper::returnStatus(400);
         $account->pushFlags();
         ajaxHelper::returnStatus(200);
     }
 
-    static function getuserAction($id) {
+    static function getuserAction($id)
+    {
         $results = [];
         $acc = null;
         $isAuth = false;
@@ -127,7 +131,8 @@ class userAction extends Action {
         app::stop();
     }
 
-    static function exitAction() {
+    static function exitAction()
+    {
         app::$user->close();
         setcookie("auth_token", '', 0);
         setcookie("auth_tokenid", '', 0);
