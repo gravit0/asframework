@@ -33,7 +33,7 @@ app::loadModule("Account");
 if(!$args['access_token'])
 app::$user = Account::getByToken();
 else
-app::$user = Account::getByAccessToken();
+app::$user = Account::getByAccessToken($args['access_token']);
 try{
     app::$controller = new $file;
 }
@@ -53,7 +53,7 @@ if((app::$options & app::FLAG_VISUAL_CONTROLLER))
     app::loadModule("visual");
 }
 app::$status = app::STATUS_VERIFY;
-app::verify();
+app::verify($args);
 if (!$func || !method_exists(app::$controller, $func)) {
     $func = 'request';
 }

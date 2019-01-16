@@ -34,8 +34,8 @@ class app {
     const STATUS_RENDER = 7;
     const STATUS_POSTRUN = 8;
     const STATUS_STOP = 9;
-    const FLAG_NOCSRF_VERIFY = 1 << 0;
-    const FLAG_VISUAL_CONTROLLER = 1 << 1;
+    const FLAG_NOCSRF_VERIFY = 1;
+    const FLAG_VISUAL_CONTROLLER = 2;
 
     static function exception_handler($e) {
         if(!($e instanceof NoLoggableException)) {
@@ -123,7 +123,7 @@ class app {
         set_exception_handler(array('app', 'exception_handler'));
     }
     
-    static function verify() {
+    static function verify($args) {
         if (app::$controller->flags & Controller::CFLAG_VERIFY_CSRF && !(app::$options & app::FLAG_NOCSRF_VERIFY)) {
             $userid = 0;
             if (app::$user)

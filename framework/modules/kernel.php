@@ -25,19 +25,19 @@ class kernel {
     }
     public static function switch_autoload_dir($newdir)
     {
-        if(kernel::$curerentdir === null) {
+        if(kernel::$currentdir === null) {
             spl_autoload_unregister(array('app', 'load') );
             spl_autoload_register(array('kernel', 'load') );
         }
-        kernel::$curerentdir = $newdir;
+        kernel::$currentdir = $newdir;
     }
     public static function std_autoload_dir()
     {
-        if(kernel::$curerentdir !== null) {
+        if(kernel::$currentdir !== null) {
             spl_autoload_unregister(array('kernel', 'load') );
             spl_autoload_register(array('app', 'load') );
         }
-        kernel::$curerentdir = null;
+        kernel::$currentdir = null;
     }
     public static function clear_autoload($stdautoloader = true)
     {
@@ -50,7 +50,7 @@ class kernel {
             }
         }
         if($stdautoloader) spl_autoload_register(array('app', 'load') );
-        kernel::$curerentdir = null;
+        kernel::$currentdir = null;
     }
     public static function none()
     {
@@ -72,7 +72,7 @@ class kernel {
         app::$db = new \db\PDOConnect;
     }
     static function load($class_name) {
-        $class = kernel::$currentdir . 'app/' . str_replace('\\', '/', $class_name) . '.php';
+        $class = kernel::$currentdir . DirAppData . str_replace('\\', '/', $class_name) . '.php';
         if (!file_exists($class))
             throw new сlassNotLoadedException($class_name);
         include $class;

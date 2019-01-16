@@ -10,9 +10,9 @@ class visual
     public static $activeid;
     private static $isAlready = false;
     
-    const FLAG_NO_STD_CSS = 1 << 0;
-    const FLAG_NO_STD_JS = 1 << 1;
-    const FLAG_NO_LAYOUT = 1 << 2;
+    const FLAG_NO_STD_CSS = 1;
+    const FLAG_NO_STD_JS = 2;
+    const FLAG_NO_LAYOUT = 4;
     static function renderView($__name,$args=[])
     {
         //if(!$args) $args = [];
