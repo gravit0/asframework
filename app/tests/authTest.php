@@ -1,6 +1,9 @@
 <?php
+
 namespace tests;
+
 use AbstractTest;
+
 class authTest extends AbstractTest
 {
     function init()
@@ -8,15 +11,22 @@ class authTest extends AbstractTest
         $this->name = 'auth';
         $this->category = 'user';
     }
+
     function body()
     {
         $controller = new \controllers\apiController;
-        $controller->request(['r'=>'api','a'=>'auth','login'=>'root','pass'=>'123']);
-        return ['status'=>'200'];
+        $controller->request(['r' => 'api', 'a' => 'auth', 'login' => 'root', 'pass' => '123']);
+        return ['status' => '200'];
     }
+
     function stop()
     {
-        $test->stopFlag=true;
-        
+        $this->stopFlag = true;
+
+    }
+
+    function end()
+    {
+
     }
 }

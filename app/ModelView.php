@@ -11,6 +11,7 @@
  *
  * @author gravit
  */
-class ModelView {
+class ModelView
+{
     //put your code here
 }

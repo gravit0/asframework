@@ -13,44 +13,36 @@ app::$request->versionIp = 4;
 $args = [];
 $key = null;
 unset($argv[0]);
-foreach($argv as $v)
-{
-    if(!strncmp($v,'-',1))
-    {
-        $key=substr($v,1);
-    }
-    else
-    {
-        $args[$key]=$v;
+foreach ($argv as $v) {
+    if (!strncmp($v, '-', 1)) {
+        $key = substr($v, 1);
+    } else {
+        $args[$key] = $v;
     }
 }
 unset($v);
 app::$status = app::STATUS_LOAD;
 $controllerName = null;
-if(!isset($args['r'])) $controllerName = 'consoleController';
-else $controllerName = $args['r'].'Controller';
-$file = 'controllers\\'.$controllerName;
+if (!isset($args['r'])) $controllerName = 'consoleController';
+else $controllerName = $args['r'] . 'Controller';
+$file = 'controllers\\' . $controllerName;
 app::loadModule("Account");
 app::$user = Account::getById(1);
-try{
+try {
     app::$controller = new $file;
-}
-catch(сlassNotLoadedException $e)
-{
+} catch (classNotLoadedException $e) {
     $file = 'controllers\\apiController';
     app::$controller = new $file;
 }
-$func = $args['a'].'Action';
+$func = $args['a'] . 'Action';
 app::$status = app::STATUS_VERIFY;
-if(!$args['a'] || !method_exists(app::$controller, $func))
-{
+if (!$args['a'] || !method_exists(app::$controller, $func)) {
     $func = 'request';
 }
 app::$status = app::STATUS_RUN;
 $controller_result = app::$controller->$func($args);
-if((app::$options & app::FLAG_VISUAL_CONTROLLER) && $controller_result)
-{
-    visual::render($controller_result[0],$controller_result[1]);
+if ((app::$options & app::FLAG_VISUAL_CONTROLLER) && $controller_result) {
+    visual::render($controller_result[0], $controller_result[1]);
 }
 app::$status = app::STATUS_POSTRUN;
 app::stop();

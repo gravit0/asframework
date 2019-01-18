@@ -1,24 +1,26 @@
 {
-    "name": "gravit0/asframework",
-    "description": "Fast PHP View-Coltroller Framework",
-    "type": "project",
-    "require": {
-        "components/jquery": "^3.2",
-        "php": ">=5.4.0"
-    },
-    "config": {
-      "fxp-asset": {
-        "installer-paths":{
-            "components/jquery":"web/data/lib/jquery"
-            }
-        } 
-    },
-    "license": "LGPLv3",
-    "authors": [
-        {
-            "name": "Gravit Gravit",
-            "email": "gravit.min@ya.ru"
-        }
-    ],
-    "minimum-stability": "alpha"
+  "name": "gravit0/asframework",
+  "description": "Fast PHP View-Coltroller Framework",
+  "type": "project",
+  "require": {
+    "components/jquery": "^3.2",
+    "php": ">=5.6.0",
+    "ext-pdo": "*",
+    "ext-json": "*"
+  },
+  "config": {
+    "fxp-asset": {
+      "installer-paths": {
+        "components/jquery": "web/data/lib/jquery"
+      }
+    }
+  },
+  "license": "LGPLv3",
+  "authors": [
+    {
+      "name": "Gravit Gravit",
+      "email": "gravit.min@ya.ru"
+    }
+  ],
+  "minimum-stability": "alpha"
 }

@@ -13,13 +13,16 @@ namespace controllers;
  *
  * @author gravit
  */
-class rauthController extends \Controller {
+class rauthController extends \Controller
+{
     //put your code here
-    public function request($args) {
+    public function request($args)
+    {
         \helpers\ajaxHelper::returnStatus(400);
     }
-    
-    public function getAction($args) {
+
+    public function getAction($args)
+    {
         api\userAction::getuserAction($args);
     }
 }
