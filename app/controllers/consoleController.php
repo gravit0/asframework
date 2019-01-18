@@ -32,9 +32,17 @@ function consoleHelpCreate($cmd, $value)
     echo "\n";
 }
 
+/**
+ * Class consoleController
+ * @package controllers
+ */
 class consoleController extends Controller
 {
     //put your code here
+    /**
+     * consoleController constructor.
+     * @throws \visualException
+     */
     function __construct()
     {
         if (app::$type == app::TYPE_WEB) {
@@ -43,6 +51,9 @@ class consoleController extends Controller
         }
     }
 
+    /**
+     * @param $args
+     */
     function request($args)
     {
         echo consoleHelper::textColor("Справка\n", consoleHelper::TEXTCOLOR_GREEN);
@@ -55,6 +66,9 @@ class consoleController extends Controller
         consoleHelpCreate('-r api -a permissions -f rm -id [ID] -perm [PERMISSION]', 'Удалить привилегию у пользователя');
     }
 
+    /**
+     * @param $args
+     */
     function setpasswordAction($args)
     {
         if (!$args['id']) consoleHelper::textColor("ID не задан\n", consoleHelper::TEXTCOLOR_RED);
@@ -66,6 +80,9 @@ class consoleController extends Controller
         echo "\n";
     }
 
+    /**
+     * @param $args
+     */
     function getuserAction($args)
     {
         if (!$args['id']) consoleHelper::textColor("ID не задан\n", consoleHelper::TEXTCOLOR_RED);
@@ -89,6 +106,9 @@ class consoleController extends Controller
         echo "\n";
     }
 
+    /**
+     * @param $args
+     */
     function repairadminAction($args)
     {
         $flagIsPush = false;

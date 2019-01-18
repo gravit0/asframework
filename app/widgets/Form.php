@@ -5,16 +5,48 @@ namespace widgets;
 use app;
 use helpers\ajaxHelper;
 
+/**
+ * Class Form
+ * @package widgets
+ */
 class Form
 {
+    /**
+     * @var string
+     */
     public $html;
+    /**
+     * @var array
+     */
     public $ids;
+    /**
+     * @var string
+     */
     public $url;
+    /**
+     * @var string
+     */
     public $jsfunc;
+    /**
+     * @var string
+     */
     public $buttonid;
+    /**
+     * @var string
+     */
     public $prefix;
+    /**
+     * @var string
+     */
     public $csrf_key;
 
+    /**
+     * @param $id
+     * @param $type
+     * @param $description
+     * @param null $verifyrule
+     * @param string $cssclass
+     */
     function addInput($id, $type, $description, $verifyrule = null, $cssclass = "textinput")
     {
         $this->ids[] = ['rule' => $verifyrule, 'id' => $id];
@@ -23,11 +55,19 @@ class Form
         $this->html .= '><br>';
     }
 
+    /**
+     * @param $jsdata
+     */
     function setSucsess($jsdata)
     {
         $this->jsfunc = $jsdata;
     }
 
+    /**
+     * @param $id
+     * @param $value
+     * @param string $cssclass
+     */
     function addButton($id, $value, $cssclass = "button button_blue")
     {
         $this->buttonid = $id;
@@ -36,6 +76,9 @@ class Form
         $this->html .= '><br>';
     }
 
+    /**
+     *
+     */
     function end()
     {
         echo $this->html;

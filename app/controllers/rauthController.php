@@ -16,11 +16,17 @@ namespace controllers;
 class rauthController extends \Controller
 {
     //put your code here
+    /**
+     * @param $args
+     */
     public function request($args)
     {
         \helpers\ajaxHelper::returnStatus(400);
     }
 
+    /**
+     * @param $args
+     */
     public function getAction($args)
     {
         api\userAction::getuserAction($args);

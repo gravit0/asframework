@@ -16,6 +16,10 @@ namespace helpers;
 class SecurityHelper
 {
     //put your code here
+    /**
+     * @param $str
+     * @return bool
+     */
     static function isOnlyLetter($str)
     {
         $len = strlen($str);
@@ -29,6 +33,10 @@ class SecurityHelper
         return true;
     }
 
+    /**
+     * @param $str
+     * @return bool
+     */
     static function isAllowLetter($str)
     {
         $len = strlen($str);

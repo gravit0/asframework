@@ -19,24 +19,40 @@ use app;
 class ajaxHelper
 {
     //put your code here
+    /**
+     * @param $status
+     */
     static function returnStatus($status)
     {
         echo jsonTextFormat::encode(['status' => $status]);
         app::stop();
     }
 
+    /**
+     * @param $status
+     * @param $errorarray
+     */
     static function returnError($status, $errorarray)
     {
         echo jsonTextFormat::encode(['status' => $status, 'error' => $errorarray]);
         app::stop();
     }
 
+    /**
+     * @param $status
+     * @param $arr
+     */
     static function returnData($status, $arr)
     {
         echo jsonTextFormat::encode(['status' => $status, 'content' => $arr]);
         app::stop();
     }
 
+    /**
+     * @param $formkey
+     * @param $userid
+     * @return string
+     */
     static function newCSRFToken($formkey, $userid)
     {
         $chars = 'abcdefhiknrstyzABCDEFGHKNQRSTYZ1234567890';
@@ -50,6 +66,12 @@ class ajaxHelper
         return $token;
     }
 
+    /**
+     * @param $token
+     * @param $formkey
+     * @param $userid
+     * @return bool
+     */
     static function verifyCSRFToken($token, $formkey, $userid)
     {
         $str = explode('.', $token);

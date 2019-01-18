@@ -23,18 +23,30 @@ use app;
 class apiController extends Controller
 {
     //put your code here
+    /**
+     * @var int
+     */
     public $flags = Controller::CFLAG_VERIFY_CSRF;
 
+    /**
+     * apiController constructor.
+     */
     function __construct()
     {
         //app::$options = app::$options | app::FLAG_CSRF_VERIFY;
     }
 
+    /**
+     * @param $args
+     */
     function request($args)
     {
         ajaxHelper::returnStatus(400);
     }
 
+    /**
+     * @param $args
+     */
     function authAction($args)
     {
         $login = $args['login'];
@@ -44,6 +56,9 @@ class apiController extends Controller
         userAction::authAction($login, $pass);
     }
 
+    /**
+     * @param $args
+     */
     function regAction($args)
     {
         if (!$args['login'] || !$args['pass'] || !$args['email']) ajaxHelper::returnStatus(400);
@@ -56,6 +71,9 @@ class apiController extends Controller
         ajaxHelper::returnStatus(401);
     }
 
+    /**
+     * @param $args
+     */
     function permissionsAction($args)
     {
         if (!$args['f']) ajaxHelper::returnStatus(400);
@@ -66,6 +84,9 @@ class apiController extends Controller
         userAction::permissionsAction($args['perm'], $args['f'], $args['id']);
     }
 
+    /**
+     * @param $args
+     */
     function flagsAction($args)
     {
         if (!$args['f']) ajaxHelper::returnStatus(400);
@@ -76,6 +97,9 @@ class apiController extends Controller
         userAction::FlagsAction($args['flag'], $args['f'], $args['id']);
     }
 
+    /**
+     * @param $args
+     */
     function exitAction($args)
     {
         if (!app::$user)
@@ -83,11 +107,17 @@ class apiController extends Controller
         userAction::exitAction();
     }
 
+    /**
+     * @param $args
+     */
     function getuserAction($args)
     {
         userAction::getuserAction($args);
     }
 
+    /**
+     * @param $args
+     */
     function getgroupmapAction($args)
     {
         echo jsonTextFormat::encode(['status' => 200,
