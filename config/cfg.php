@@ -1,9 +1,9 @@
 <?php
 return [
     'db' => [
-        'connect' => 'mysql:host=localhost;dbname=framework',
-        'login' => 'framework',
-        'password' => ''
+        'connect' => 'pgsql:host=localhost;dbname=as',
+        'login' => 'as',
+        'password' => '12345'
     ],
     'users' => [
         'groupmap' => [

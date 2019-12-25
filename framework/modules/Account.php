@@ -126,7 +126,7 @@ class Account extends AbstractUser
      */
     function setPassword($pass)
     {
-        $results = app::$db->prepare('UPDATE `users` SET `passwd` = :pass WHERE `id` = :id');
+        $results = app::$db->prepare('UPDATE users SET passwd = :pass WHERE id = :id');
         $results->bindParam(':id', $this->id, PDO::PARAM_INT);
         $hash = password_hash($pass, PASSWORD_DEFAULT);
         $results->bindParam(':pass', $hash, PDO::PARAM_STR);
@@ -138,7 +138,7 @@ class Account extends AbstractUser
      */
     function pushPermissions()
     {
-        $results = app::$db->prepare('UPDATE `users` SET `permissions` = :perm WHERE `id` = :id');
+        $results = app::$db->prepare('UPDATE users SET permissions = :perm WHERE id = :id');
         $results->bindParam(':id', $this->id, PDO::PARAM_INT);
         $results->bindParam(':perm', $this->permissions, PDO::PARAM_INT);
         $results->execute();
@@ -149,7 +149,7 @@ class Account extends AbstractUser
      */
     function pushFlags()
     {
-        $results = app::$db->prepare('UPDATE `users` SET `flags` = :perm WHERE `id` = :id');
+        $results = app::$db->prepare('UPDATE users SET flags = :perm WHERE id = :id');
         $results->bindParam(':id', $this->id, PDO::PARAM_INT);
         $results->bindParam(':perm', $this->flags, PDO::PARAM_INT);
         $results->execute();
@@ -272,7 +272,7 @@ class Account extends AbstractUser
      */
     function reg($login, $passwordhash, $email)
     {
-        $results = app::$db->prepare('INSERT INTO `users` (`login`, `passwd`, `email`, `permissions`, `flags`, `access_token`) VALUES ( :login, :pass, :email, 0, 0, :access_token)');
+        $results = app::$db->prepare('INSERT INTO users (login, passwd, email, permissions, flags, access_token) VALUES ( :login, :pass, :email, 0, 0, :access_token)');
         //$results->bindParam(':userid', $this->id, PDO::PARAM_INT);
         $results->bindParam(':login', $login, PDO::PARAM_STR);
         $results->bindParam(':pass', $passwordhash, PDO::PARAM_STR);
@@ -302,7 +302,7 @@ class Account extends AbstractUser
      */
     function addSession($token, $ip = null)
     {
-        $results = app::$db->prepare('INSERT INTO `sessions` (`token`, `ip`, `user_id`) VALUES ( :token , :ip, :userid)');
+        $results = app::$db->prepare('INSERT INTO sessions (token, ip, user_id) VALUES ( :token , :ip, :userid)');
         $results->bindParam(':userid', $this->id, PDO::PARAM_INT);
         $results->bindParam(':token', $token, PDO::PARAM_STR);
         $binIP = null;
@@ -332,7 +332,7 @@ class Account extends AbstractUser
      */
     function deleteToken($id)
     {
-        $results = app::$db->prepare('DELETE FROM `sessions` WHERE `id` = :id');
+        $results = app::$db->prepare('DELETE FROM sessions WHERE id = :id');
         $results->bindParam(':id', $id, PDO::PARAM_INT);
         $results->execute();
     }
