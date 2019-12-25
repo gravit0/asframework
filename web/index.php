@@ -56,8 +56,15 @@ if (!$func || !method_exists(app::$controller, $func)) {
 }
 app::$status = app::STATUS_RUN;
 $controller_result = app::$controller->$func($args);
-if ((app::$options & app::FLAG_VISUAL_CONTROLLER) && $controller_result) {
-    visual::render($controller_result[0], $controller_result[1]);
+if($controller_result)
+{
+    if (app::$options & app::FLAG_VISUAL_CONTROLLER) {
+        visual::render($controller_result[0], $controller_result[1]);
+    }
+    else
+    {
+        echo json_encode($controller_result);
+    }
 }
 app::$status = app::STATUS_POSTRUN;
 app::stop();

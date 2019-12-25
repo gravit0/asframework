@@ -21,6 +21,7 @@ class ajaxHelper
     //put your code here
     /**
      * @param $status
+     * @depecated
      */
     static function returnStatus($status)
     {
@@ -31,6 +32,7 @@ class ajaxHelper
     /**
      * @param $status
      * @param $errorarray
+     * @depecated
      */
     static function returnError($status, $errorarray)
     {
@@ -41,6 +43,7 @@ class ajaxHelper
     /**
      * @param $status
      * @param $arr
+     * @depecated
      */
     static function returnData($status, $arr)
     {

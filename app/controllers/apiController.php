@@ -41,7 +41,7 @@ class apiController extends Controller
      */
     function request($args)
     {
-        ajaxHelper::returnStatus(400);
+        return ['status' => 400];
     }
 
     /**
@@ -52,8 +52,8 @@ class apiController extends Controller
         $login = $args['login'];
         $pass = $args['pass'];
         if (!$login || !$pass || app::$user)
-            ajaxHelper::returnStatus(400);
-        userAction::authAction($login, $pass);
+            return ['status' => 400];
+        return userAction::authAction($login, $pass);
     }
 
     /**
@@ -61,14 +61,14 @@ class apiController extends Controller
      */
     function regAction($args)
     {
-        if (!$args['login'] || !$args['pass'] || !$args['email']) ajaxHelper::returnStatus(400);
+        if (!$args['login'] || !$args['pass'] || !$args['email']) return ['status' => 400];
         $a = Account::getByLogin($args['login']);
         if (!$a) {
             $newa = new Account;
             $newa->reg($args['login'], password_hash($args['pass'], PASSWORD_DEFAULT), $args['email']);
-            ajaxHelper::returnStatus(200);
+            return ['status' => 200];
         }
-        ajaxHelper::returnStatus(401);
+        return ['status' => 401];
     }
 
     /**
@@ -76,12 +76,12 @@ class apiController extends Controller
      */
     function permissionsAction($args)
     {
-        if (!$args['f']) ajaxHelper::returnStatus(400);
-        if (!$args['id']) ajaxHelper::returnStatus(400);
-        if (!app::$user->isPermission(PERM_ADMIN) && !app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
+        if (!$args['f']) return ['status' => 400];
+        if (!$args['id']) return ['status' => 400];
+        if (!app::$user->isPermission(PERM_ADMIN) && !app::$user->isPermission(PERM_SUPERUSER)) return ['status' => 403];
         if (!$args['perm'])
-            ajaxHelper::returnStatus(400);
-        userAction::permissionsAction($args['perm'], $args['f'], $args['id']);
+            return ['status' => 400];
+        return userAction::permissionsAction($args['perm'], $args['f'], $args['id']);
     }
 
     /**
@@ -89,12 +89,12 @@ class apiController extends Controller
      */
     function flagsAction($args)
     {
-        if (!$args['f']) ajaxHelper::returnStatus(400);
-        if (!$args['id']) ajaxHelper::returnStatus(400);
-        if (!app::$user->isPermission(PERM_SUPERUSER)) ajaxHelper::returnStatus(403);
+        if (!$args['f']) return ['status' => 400];
+        if (!$args['id']) return ['status' => 400];
+        if (!app::$user->isPermission(PERM_SUPERUSER)) return ['status' => 403];
         if (!$args['flag'])
-            ajaxHelper::returnStatus(400);
-        userAction::FlagsAction($args['flag'], $args['f'], $args['id']);
+            return ['status' => 400];
+        return userAction::FlagsAction($args['flag'], $args['f'], $args['id']);
     }
 
     /**
@@ -103,8 +103,8 @@ class apiController extends Controller
     function exitAction($args)
     {
         if (!app::$user)
-            ajaxHelper::returnStatus(400);
-        userAction::exitAction();
+            return ['status' => 400];
+        return userAction::exitAction();
     }
 
     /**
@@ -112,7 +112,7 @@ class apiController extends Controller
      */
     function getuserAction($args)
     {
-        userAction::getuserAction($args);
+        return userAction::getuserAction($args);
     }
 
     /**
@@ -120,7 +120,7 @@ class apiController extends Controller
      */
     function getgroupmapAction($args)
     {
-        echo jsonTextFormat::encode(['status' => 200,
-            'groupmap' => app::$cfg['users']['groupmap']]);
+        echo ['status' => 200,
+            'groupmap' => app::$cfg['users']['groupmap']];
     }
 }

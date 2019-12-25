@@ -21,7 +21,7 @@ class rauthController extends \Controller
      */
     public function request($args)
     {
-        \helpers\ajaxHelper::returnStatus(400);
+        return ['status' => 400];
     }
 
     /**

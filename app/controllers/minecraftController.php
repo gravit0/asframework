@@ -19,7 +19,7 @@ const SECRET_AUTH_KEY = "8k37Jm4l33jQw88eRo9LV";
 class minecraftController extends \Controller {
     //put your code here
     public function request($args) {
-        \helpers\ajaxHelper::returnStatus(400);
+        return ['status' => 400];
     }
     
     public function getAction($args) {
