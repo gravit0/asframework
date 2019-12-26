@@ -32,15 +32,8 @@ CREATE TABLE `sessions` (
   `id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `ip` varchar(92) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+  `ip` tinyblob COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Дамп данных таблицы `sessions`
---
-
-INSERT INTO `sessions` (`id`, `user_id`, `token`, `ip`) VALUES
-(1, 2, '0e6a8BeGT14knhzD6H09z3bT4CYcNG', NULL);
 
 -- --------------------------------------------------------
 
@@ -57,15 +50,6 @@ CREATE TABLE `users` (
   `flags` bigint(20) NOT NULL,
   `access_token` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Дамп данных таблицы `users`
---
-
-INSERT INTO `users` (`id`, `login`, `email`, `passwd`, `permissions`, `flags`) VALUES
-(1, 'admin', 'root@example.com', '$2y$10$etZGYDCuehLTcs1j7jgr.u29hL.lhcSOwYGzyL0KN1DHpZS4Ueihy', 12, 0),
-(2, 'Gravit', 'gravit@example.com', '$2y$10$ndD4eY8ukLhWiyl8JYvUG.A4BzUcLs5syVG/.51jzAscZzdT6hzxK', 12, 0),
-(3, 'HiTechBot', 'hitech@example.com', '$2y$10$X5qwwxrGO4G1k1oZAFxGp.RSStXEkqVZMxjbVb2rDk5c5JH42MGHO', 0, 0);
 
 --
 -- Индексы сохранённых таблиц
@@ -91,13 +75,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

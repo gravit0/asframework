@@ -99,12 +99,13 @@ class apiController extends Controller
 
     /**
      * @param $args
+     * @return array
      */
     function exitAction($args)
     {
         if (!app::$user)
             return ['status' => 400];
-        return userAction::exitAction();
+        userAction::exitAction();
     }
 
     /**
